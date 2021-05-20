@@ -2,7 +2,7 @@
 database project
 
 ## ER diagram
-![...](images\ER_diagram.png)</br>
+![...](images/ER_diagram.png)</br>
 
 ## schema diagram
-![...](images\schema_diagram.png)</br>
+![...](images/schema_diagram.png)</br>
