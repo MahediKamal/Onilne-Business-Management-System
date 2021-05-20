@@ -5,5 +5,7 @@
     
     <h1> Customer index page <h1>
 
+    
+
 
 <?php require_once '../includes/footer.php'; ?>
