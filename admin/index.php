@@ -6,7 +6,8 @@
 
 
     $query = "select * from customer";
-    CreateTable_av($query, $con);
+    $action = 1; // action 1, means we want add & delete button in the table
+    CreateTable_av($query, $con, $action);
     // CreateTable_av($APEX$_ACL, $c);
 
 ?>
