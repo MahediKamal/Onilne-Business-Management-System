@@ -37,8 +37,8 @@
             }
             if($action == 1){ // adding button in action column
                 echo "<td>";
-                echo " <button type=\"button\" class=\"btn btn-outline-success\">Edit</button> ";
-                echo " <button type=\"button\" class=\"btn btn-outline-danger\">Delete</button> ";
+                echo " <button type=\"button\" class=\"btn btn-outline-success btn-sm\">Edit</button> ";
+                echo " <button type=\"button\" class=\"btn btn-outline-danger btn-sm\">Delete</button> ";
 
                 echo "</td>\n";
             }
