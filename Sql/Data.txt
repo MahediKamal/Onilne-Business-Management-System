@@ -1,0 +1,2 @@
+INSERT INTO supplier_info (supplier_id, supplier_name, supplier_company, supplier_phone, supplier_country) VALUES (2, 'abir', 'AB_grp', '01888888', 'Bangladesh');
+INSERT INTO supplier_info (supplier_id, supplier_name, supplier_company, supplier_phone, supplier_country) VALUES (3, 'pranto', 'PR_grp', '01888888', 'Bangladesh');
