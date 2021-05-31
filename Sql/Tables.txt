@@ -31,3 +31,4 @@ CREATE TABLE supplier_info(
     supplier_phone NUMBER(20) NOT NULL, 
     supplier_country VARCHAR(30)
 );
+
