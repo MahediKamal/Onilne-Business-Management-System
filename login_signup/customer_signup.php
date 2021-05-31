@@ -3,16 +3,6 @@
     require_once '../includes/header.php';
 ?>
 
-     <!-- <form action="post_signup.php" method="post">
-
-        <input type="text" name="CUSTOMER_ID" placeholder="CUSTOMER_ID" />
-        <input type="text" name="CUSTOMER_NAME" placeholder="CUSTOMER_NAME" />
-
-        <input type="text" name="CUSTOMER_CITY" placeholder="CUSTOMER_CITY" />
-
-        <input type="submit" name="submit" />
-    </form>  -->
-    <!-- ///////////styles////////// -->
     <style>
             *{
                 padding: 0;
@@ -106,7 +96,7 @@
                                                 <div class="form-row">
                                                     <div class="col-lg-7 mx-4 my-3">
                                      
-                                                 <input class="btn1" type="submit" name="Signup">
+                                                 <input class="btn1" type="submit" name="submit">
                                                   
                                                
 
