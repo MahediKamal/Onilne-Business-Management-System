@@ -1,0 +1,33 @@
+create table customer
+(
+ cst_id NUMBER(20) NOT NULL PRIMARY KEY, 
+ cst_name varchar(20) NOT NULL,
+ cst_phone number(11) NOT NULL,
+ cst_email varchar(20) NOT NULL,
+ cst_city varchar(12) NOT NULL,
+ cst_houseno number(10) NOT NULL,
+ cst_street varchar(20) NOT NULL,
+ cst_password varchar(8) NOT NULL
+);
+
+create table login
+(
+ login_name varchar(20) NOT NULL,
+ login_password varchar(8) NOT NULL
+);
+
+create table admin_login
+(
+    admin_id NUMBER(20) NOT NULL PRIMARY KEY, 
+    admin_name VARCHAR(30) NOT NULL, 
+    admin_password varchar(8) NOT NULL
+
+);
+
+CREATE TABLE supplier_info( 
+    supplier_id NUMBER(20) NOT NULL PRIMARY KEY, 
+    supplier_name VARCHAR(30),  
+    supplier_company VARCHAR(30), 
+    supplier_phone NUMBER(20) NOT NULL, 
+    supplier_country VARCHAR(30)
+);
