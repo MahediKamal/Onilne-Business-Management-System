@@ -5,7 +5,6 @@
     require_once '../includes/connection.php';
     require_once './product_chard.php';
         
-
 ?>
     
     <h1> Customer index page <h1>

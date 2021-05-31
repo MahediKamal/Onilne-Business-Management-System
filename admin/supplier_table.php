@@ -5,7 +5,7 @@
     require_once '../includes/function.php';
     require_once '../admin/navigation.php';
 
-    $query = "select * from customer";
+    $query = "select * from supplier_info";
     $action = 0; // action 1, means we want add & delete button in the table
     CreateTable_av($query, $con, $action);
 
