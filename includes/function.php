@@ -70,14 +70,14 @@
         while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
             
             foreach ($row as $item) {
-                echo "<div class=\"col-sm-3\">";
+                echo " <br/> <div class=\"col-sm-3\">";
                 echo "<div class=\"card text-white bg-dark\" style=\"width: 18rem;\">";
-                    echo "<img src=\"../images/ER_diagram.png\" class=\"card-img-top\" alt=\"...\">";
+                    echo "<img src=\"../images/prd1.png\" class=\"card-img-top\" alt=\"...\">";
                     echo "<div class=\"card-body\">";
                         echo $item!==null?htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE):"&nbsp;";
-                        echo "<a href=\"#\" class=\"btn btn-primary\">Go somewhere</a>";
+                        echo "<a href=\"#\" class=\"btn btn-light\">Add to cart</a>";
                     echo "</div>";
-                echo "</div>";
+                echo "</div> <br/>";
                 echo "</div>";
             }
             
