@@ -19,7 +19,7 @@
         <input type="text" name="supplier_phone" placeholder="PHONE" />
         <input type="text" name="supplier_country" placeholder="COUNTRY" />
 
-        <input type="submit" name="submit" />
+        <input type="submit" name="submit" class="btn btn-outline-success btn-sm"/>
     </form> 
     
     
