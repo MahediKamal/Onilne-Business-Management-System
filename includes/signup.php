@@ -55,6 +55,7 @@
                 <div class="col-lg-7 px-5 pt-5 ">
                     <h1 class="font-weight-bold  ">Signup</h1>
                     <form action="">
+
                         <div class="form-row">
                             <div class="col-lg-7">
                                 <input type="name" placeholder="Name" class="form-control my-2 p-2 mx-4" >
@@ -79,9 +80,13 @@
                                                 <div class="col-lg-7">
                                                     <input type="password" placeholder="*********" class="form-control my-2 p-2 mx-4">
                                                 </div>
+
+                                               
+
                                                 <div class="form-row">
                                                     <div class="col-lg-7 mx-4 my-3">
-                                                      <button type="button" class="btn1">Signup</button>
+                                                 
+                                                      <input class="btn1" type="submit" name="Signup">
                                                     </div>                    
                         </div>
                       
