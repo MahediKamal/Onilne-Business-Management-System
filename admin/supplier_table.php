@@ -7,7 +7,8 @@
 
     $query = "select * from supplier_info";
     $action = 1; // action 1, means we want add & delete button in the table
-    CreateTable_av($query, $con, $action);
+    $table = "supplier_info";
+    CreateTable_av($query, $con, $action, $table);
 
 ?>
     <!-- .....................add butttom ...................... -->
