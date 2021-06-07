@@ -9,7 +9,8 @@
     
     $query = "select * from customer";
     $action = 1; // action 1, means we want add & delete button in the table
-    CreateTable_av($query, $con, $action);
+    $table = "customer";
+    CreateTable_av($query, $con, $action, $table);
 
 ?>
     

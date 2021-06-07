@@ -3,8 +3,6 @@
     require_once 'includes/header.php';
 ?>
     
-    <h1> Main index page <h1>
-
     
 
 
