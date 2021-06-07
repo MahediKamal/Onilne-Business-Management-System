@@ -43,7 +43,7 @@
             }
             if($action == 1){ // adding button in action column
                 echo "<td>";
-                echo " <button type=\"button\" class=\"btn btn-outline-success btn-sm\">Edit</button> ";
+                echo " <a href='../includes/edit.php?pk_nme=$pk_field&pk_val=$fst&tbl=$table' type=\"button\" class=\"btn btn-outline-success btn-sm\">Edit</a> ";
                 echo " <a href='../includes/delete.php?pk_nme=$pk_field&pk_val=$fst&tbl=$table' type=\"button\" class=\"btn btn-outline-danger btn-sm\">Delete</a> ";
 
                 echo "</td>\n";
