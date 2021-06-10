@@ -5,6 +5,14 @@
     $pk_val = $_GET['pk_val'];
     $table = $_GET['tbl'];
 
+    // $page;
+    // if($table == "supplier_info") $page = "supplier_table";
+    // else if($table == "customer") $page = "customer_details_table";
+    // echo "<head>";
+    //     echo "<title>done</title>";
+    //     echo "<meta http-equiv = \"refresh\" content = \"0; url = ../admin/$page.php\" />";
+    // echo "</head>";
+
 
     $query = "SELECT * FROM $table WHERE $pk_field = $pk_val";
 

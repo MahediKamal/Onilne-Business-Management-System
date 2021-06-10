@@ -1,7 +1,3 @@
-<head>
-      <title>done</title>
-      <meta http-equiv = "refresh" content = "0; url = supplier_table.php" />
-</head>
 <?php 
     $title = "supplier:add";
     // require_once '../includes/header.php';
@@ -61,9 +57,11 @@
         oci_free_statement($stmt);
         oci_close($con);
 
+        echo "<head>";
+            echo "<title>done</title>";
+            echo "<meta http-equiv = \"refresh\" content = \"0; url = supplier_table.php\" />";
+        echo "</head>";
         exit;
     }
 
-
-    require_once '../includes/footer.php';
 ?>

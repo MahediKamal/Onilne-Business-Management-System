@@ -1,7 +1,3 @@
-<head>
-      <title>done</title>
-      <meta http-equiv = "refresh" content = "0; url = ../customer/index.php" />
-</head>
 <?php 
     // $title = "signup";
     require_once '../includes/connection.php';
@@ -79,9 +75,13 @@
         oci_free_statement($stmt);
         oci_close($con);
 
+        echo "<head>";
+            echo "<title>done</title>";
+            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
+        echo "</head>";
+
         exit;
     }
 
 
-    require_once '../includes/footer.php';
 ?>
