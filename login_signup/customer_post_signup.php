@@ -1,6 +1,9 @@
+<head>
+      <title>done</title>
+      <meta http-equiv = "refresh" content = "0; url = ../customer/index.php" />
+</head>
 <?php 
-    $title = "signup";
-    require_once '../includes/header.php';
+    // $title = "signup";
     require_once '../includes/connection.php';
 
     // Check if the form is submitted

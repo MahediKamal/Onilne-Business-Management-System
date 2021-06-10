@@ -1,6 +1,10 @@
+<head>
+      <title>done</title>
+      <meta http-equiv = "refresh" content = "0; url = supplier_table.php" />
+</head>
 <?php 
     $title = "supplier:add";
-    require_once '../includes/header.php';
+    // require_once '../includes/header.php';
     require_once '../includes/connection.php';
 
     // Check if the form is submitted
