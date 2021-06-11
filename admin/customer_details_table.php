@@ -1,6 +1,7 @@
 
 <?php
     $title = "admin: customer:details";
+    $table_title = "Registered Customers:";
     require_once '../includes/header.php';
     require_once '../includes/connection.php';
     require_once '../includes/function.php';
