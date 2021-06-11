@@ -1,6 +1,6 @@
 <?php
 
-    function CreateTable_av($query, $con, $action){
+    function CreateTable_av($query, $con, $action, $table){
         $s = oci_parse($con, $query);
         if (!$s) {
             $m = oci_error($con);
@@ -16,8 +16,11 @@
         $ncols = oci_num_fields($s);
         echo "<thead>";
         echo "<tr>\n";
+
+        $pk_field;
         for ($i = 1; $i <= $ncols; ++$i) {
             $colname = oci_field_name($s, $i);
+            if($i == 1) $pk_field = htmlspecialchars($colname,ENT_QUOTES|ENT_SUBSTITUTE);
             echo "  <th scope=\"col\">".htmlspecialchars($colname,ENT_QUOTES|ENT_SUBSTITUTE)."</th>\n";
         }
 
@@ -30,15 +33,18 @@
         echo "<tbody>";
         while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
             echo "<tr>\n";
+            $fst; $cnt = 0;
             foreach ($row as $item) {
+                if($cnt == 0) $fst = $item!==null?htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE):"&nbsp;";
+                $cnt++;
                 echo "<td>";
                 echo $item!==null?htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE):"&nbsp;";
                 echo "</td>\n";
             }
             if($action == 1){ // adding button in action column
                 echo "<td>";
-                echo " <button type=\"button\" class=\"btn btn-outline-success btn-sm\">Edit</button> ";
-                echo " <button type=\"button\" class=\"btn btn-outline-danger btn-sm\">Delete</button> ";
+                echo " <a href='../includes/edit.php?pk_nme=$pk_field&pk_val=$fst&tbl=$table' type=\"button\" class=\"btn btn-outline-success btn-sm\">Edit</a> ";
+                echo " <a href='../includes/delete.php?pk_nme=$pk_field&pk_val=$fst&tbl=$table' type=\"button\" class=\"btn btn-outline-danger btn-sm\">Delete</a> ";
 
                 echo "</td>\n";
             }
