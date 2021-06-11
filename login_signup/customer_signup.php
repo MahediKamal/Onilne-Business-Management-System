@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-lg-7">
-                                            <input type="text" name="cst_email" placeholder="Email" class="form-control my-2 p-2 mx-4">
+                                            <input type="email" name="cst_email" placeholder="Email" class="form-control my-2 p-2 mx-4">
                                         </div>
                                         <div class="form-row">
                                             <div class="col-lg-7">
