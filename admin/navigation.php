@@ -52,10 +52,13 @@ nav ul li a:hover{
    </ul>
   </nav>
 
-  <div class="cus">
-  <h2>Registered Customers:</h2>
-  </div>
 </body>
+
+<?php
+    echo "<div class=\"cus\">";
+        echo "<h2>$table_title</h2>";
+    echo "</div>";
+?>
   
 
   

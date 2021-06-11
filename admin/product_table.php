@@ -1,9 +1,10 @@
 <?php
     $title = "admin: product";
+    $table_title = "Product list:";
     require_once '../includes/header.php';
     require_once '../includes/connection.php';
     require_once '../includes/function.php';
-    require_once '../admin/navigation2.php';
+    require_once '../admin/navigation.php';
 
     
     
