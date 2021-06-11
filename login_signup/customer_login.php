@@ -35,41 +35,41 @@
 
 </style>
 
+<?php
+       echo "<div class=\"container-fluid bg\">";
 
-      <div class="container-fluid bg">
+       echo "<div class=\"row\">";
+       echo " <div class=\"col-md-4 col-sm-4 col-xs-12\"></div>";
+       echo "<div class=\"col-md-4 col-sm-4 col-xs-12\">";
+             //<!--form-->
+             echo "<form action=\"customer_login_post.php\" method=\"post\" class=\"form-container\">";
+             echo "<h1>Login</h1>";
+             echo "<div class=\"mb-3\">";
+             echo "<label for=\"exampleInputEmail1\" class=\"form-label\">Email</label>";
+             echo "<input type=\"email\" name=\"mail\" placeholder=\"Enter email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">";
 
-          <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-12"></div>
-            <div class="col-md-4 col-sm-4 col-xs-12">
-             <!--form-->
-             <form action="customer_login_post.php" method="post" class="form-container">
-                <h1>Login</h1>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email</label>
-                  <input type="email" name="mail" placeholder="Enter email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" name="pass" placeholder="Enter password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="mb-3 ">
-                  
-                  <p>Don't have an account? <a href="customer_signup.php">SIGN UP</a></p>
-                  
-                </div>
+             echo "</div>";
+             echo "<div class=\"mb-3\">";
+             echo "<label for=\"exampleInputPassword1\" class=\"form-label\">Password</label>";
+             echo "<input type=\"password\" name=\"pass\" placeholder=\"Enter password\" class=\"form-control\" id=\"exampleInputPassword1\">";
+             echo "</div>";
+             echo "<div class=\"mb-3 form-check\">";
+             echo "<input type=\"checkbox\" name=\"chk\" class=\"form-check-input\" id=\"exampleCheck1\">";
+             echo "<label class=\"form-check-label\" for=\"exampleCheck1\">Remember me</label>";
+             echo "</div>";
                 
-                <input class="btn1" type="submit" name="submit">
-              </form>
+             echo "<input class=\"btn1\" type=\"submit\" name=\"submit\">";
+             echo "</form>";
 
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-12"></div>
-          </div>
-      </div>
+             echo "</div>";
+             echo "<div class=\"col-md-4 col-sm-4 col-xs-12\"></div>";
+             echo "</div>";
+             echo "</div>";
 
-
+             ?>
       <?php require_once '../includes/footer.php'; ?>
 
+      </body>
+      </html>
 
-  </body>
-</html> 
+  

@@ -61,6 +61,35 @@
         }
     }
 
+    else if($pk_field == "CST_ID"){
+        // ..........................posting new value..........................
+        echo "<form action=\"../admin/post_into_customer_table.php\" method=\"post\">";
+            echo "<input type=\"text\" name=\"cst_id\" placeholder=$row[CST_ID] />";
+            echo "<input type=\"text\" name=\"cst_name\" placeholder=$row[CST_NAME] />";
+
+            echo "<input type=\"text\" name=\"cst_phone\" placeholder=$row[CST_PHONE] />";
+            echo "<input type=\"text\" name=\"cst_email\" placeholder=$row[CST_EMAIL] />";
+            echo "<input type=\"text\" name=\"cst_city\" placeholder=$row[CST_CITY] />";
+            echo "<input type=\"text\" name=\"cst_houseno\" placeholder=$row[CST_HOUSENO] />";
+            echo "<input type=\"text\" name=\"cst_street\" placeholder=$row[CST_STREET] />";
+            echo "<input type=\"text\" name=\"cst_password\" placeholder=$row[CST_PASSWORD] />";
+
+            echo "<input type=\"submit\" name=\"submit\" class=\"btn btn-outline-success btn-sm\"/>";
+        echo "</form>";
+        // .......deleting new value.................
+        $query = "DELETE FROM $table WHERE $pk_field = $pk_val";
+        $s = oci_parse($con, $query);
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+    }
+
     echo " edited from $table where PK is $pk_field and PK value is $pk_val";
 
 ?>
