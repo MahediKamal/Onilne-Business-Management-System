@@ -6,7 +6,7 @@
 <title>Shoppers Stop</title>
 
 <!--JQuery--------------->
-<script src="js/JQuery.js"></script>
+<script src="../js/JQuery.js"></script>
 <!--fav-icon---------------->
 <link rel="shortcut icon" href="images/fav-icon.png"/>
 <!--using FontAwesome--------------->
@@ -531,14 +531,14 @@ footer{
      <div class="toggle"></div>
      <!--menu----------------->
      <ul class="menu">
-         <li><a href="#">Home</a></li>
-         <li  class="shop"><a href="#" >Women</a></li>
-         <li><a href="#">Men</a>
+         <li><a href="index.php">Home</a></li>
+         <li  class="shop"><a href="women.php" >Women</a></li>
+         <li><a href="men.php">Men</a>
              <!--lable---->
              <span class="sale-lable">Sale</span>
          </li>
-         <li><a href="#">Kids</a></li>
-         <li><a href="#">Electronics</a></li>
+         <li><a href="kids.php">Kids</a></li>
+         <li><a href="electronics.php">Electronics</a></li>
      </ul>
      <!--right-menu----------->
      <div class="right-menu">
@@ -548,7 +548,7 @@ footer{
          <a href="javascript:void(0);" class="user">
              <i class="far fa-user"></i>
          </a>
-         <a href="#">
+         <a href="cart.php">
              <i class="fas fa-shopping-cart">
                  <span class="num-cart-product">0</span>
              </i>

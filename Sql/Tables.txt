@@ -1,34 +1,99 @@
 create table customer
 (
- cst_id NUMBER(20) NOT NULL PRIMARY KEY, 
- cst_name varchar(20) NOT NULL,
+ cst_id NUMBER(38) NOT NULL PRIMARY KEY, 
+ cst_name varchar(150) NOT NULL,
  cst_phone number(11) NOT NULL,
- cst_email varchar(20) NOT NULL,
- cst_city varchar(12) NOT NULL,
- cst_houseno number(10) NOT NULL,
- cst_street varchar(20) NOT NULL,
+ cst_email varchar(150) NOT NULL,
+ cst_city varchar(150) NOT NULL,
+ cst_houseno number(38) NOT NULL,
+ cst_street varchar(150) NOT NULL,
  cst_password varchar(8) NOT NULL
 );
 
+
 create table login
 (
- login_name varchar(20) NOT NULL,
+ login_name varchar(150) NOT NULL,
  login_password varchar(8) NOT NULL
 );
 
+
 create table admin_login
 (
-    admin_id NUMBER(20) NOT NULL PRIMARY KEY, 
-    admin_name VARCHAR(30) NOT NULL, 
+    admin_id NUMBER(38) NOT NULL PRIMARY KEY, 
+    admin_name VARCHAR(150) NOT NULL, 
     admin_password varchar(8) NOT NULL
 
 );
 
+
 CREATE TABLE supplier_info( 
-    supplier_id NUMBER(20) NOT NULL PRIMARY KEY, 
-    supplier_name VARCHAR(30),  
-    supplier_company VARCHAR(30), 
-    supplier_phone NUMBER(20) NOT NULL, 
-    supplier_country VARCHAR(30)
+    supplier_id NUMBER(38) NOT NULL PRIMARY KEY, 
+    supplier_name VARCHAR(150),  
+    supplier_company VARCHAR(150), 
+    supplier_phone NUMBER(30) NOT NULL, 
+    supplier_country VARCHAR(150)
 );
 
+
+create table product
+(
+ pdt_id NUMBER(38) NOT NULL PRIMARY KEY, 
+ pdt_name varchar(150) NOT NULL,
+ unit_order number(38) NOT NULL,
+ pdt_description varchar(150) NOT NULL,
+ pdt_quantity number(38) NOT NULL,
+ pdt_price varchar(150) NOT NULL,
+ pdt_weight varchar(150) NOT NULL,
+ pdt_stock varchar(150) NOT NULL,
+ pdt_discount varchar(150) NOT NULL
+);
+
+create table order_info
+(
+ order_id NUMBER(38) NOT NULL PRIMARY KEY, 
+ order_date date NOT NULL,
+ estimated_date date NOT NULL,
+ delivery_date date NOT NULL,
+ freight_charge varchar(150) NOT NULL,
+ payment_status varchar(150) NOT NULL,
+ total_discount varchar(150) NOT NULL,
+ order_cancel varchar(150) NOT NULL
+);
+
+create table courier
+(
+ courier_id NUMBER(38) NOT NULL PRIMARY KEY, 
+ courier_company varchar(150) NOT NULL,
+ courier_phone number(11) NOT NULL
+);
+
+create table history
+(
+  hst_date date NOT NULL
+);
+
+create table billing_info
+(
+ billing_id NUMBER(38) NOT NULL PRIMARY KEY, 
+  payment_type varchar(150) NOT NULL,
+  pin_number number(30) NOT NULL
+);
+
+create table cart
+(
+ cart_id NUMBER(38) NOT NULL PRIMARY KEY, 
+  total varchar(150) NOT NULL,
+  num_of_pdt number(30) NOT NULL
+);
+
+create table category
+(
+ category_id NUMBER(38) NOT NULL PRIMARY KEY, 
+  category_name varchar(150) NOT NULL
+);
+
+create table request
+(
+  accept_status varchar(150) NOT NULL
+);
