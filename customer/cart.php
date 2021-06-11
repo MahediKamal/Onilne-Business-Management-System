@@ -1,6 +1,6 @@
 <?php
 
-    require_once './customer/navigation.php';
+    require_once 'navigation.php';
 
 ?>
 
@@ -106,35 +106,7 @@
             border: 1px solid teal;
         }
 
-        footer{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-.copyright{
-    font-size: 0.9rem;
-    color: #4e4e4e;
-    letter-spacing: 1px;
-}
-.subscribe input{
-    width:240px;
-    height: 43px;
-    padding: 0px 20px;
-    border: 1px solid rgba(0,0,0,0.1);
-    outline: none;
-    box-shadow: 2px 2px 30px rgba(0,0,0,0.05);
-}
-.subscribe input[type="submit"]{
-    width:120px;
-    background-color: #0b9d8a;
-    color: #ffffff;
-    margin: 0px 5px;
-}
-        
+       
     </style>
 
 
@@ -152,7 +124,7 @@
             <tr>
                 <td>
                     <div class="cart-info">
-                        <img src="images/p-1.png" alt=""  width="90px"
+                        <img src="../images/p-1.png" alt=""  width="90px"
                         height="90px" >
                         <div>
                             <p>Basic T-shirt</p>
@@ -168,7 +140,7 @@
             <tr>
                 <td>
                     <div class="cart-info">
-                        <img src="images/p-2.png" alt=""  width="90px"
+                        <img src="../images/p-2.png" alt=""  width="90px"
                         height="90px" >
                         <div>
                             <p>Basic Shirt</p>
@@ -202,28 +174,20 @@
 
 
     <div class="item">
-        <button class="btn">Checkout</button>
+    <a href="checkout.php"> <button class="btn">Checkout</button></a>
+       
     </div>
 
 
     </div>
 
-     <!--footer---------------------------->
-     <footer>
-        <!--copyright-------------->
-        <span class="copyright">
-            Copyright 2020 - Shoppers Stop
-        </span>
-        <!--subcribe---------------->
-        <div class="subscribe">
-            <form>
-            <input type="email" placeholder="Example@gmail.com" required/>
-            <input type="submit" value="Subscribe">
-            </form>
-        </div>
-    </footer>
-
-    
+     
     
 </body>
 </html>
+
+<?php
+
+    require_once 'footer.php';
+
+?>

@@ -17,7 +17,7 @@
     
     <!-- .....................add butttom ...................... -->
     <div>
-    <h3>Add new supplier:</h3>
+    <h3>Add new product:</h3>
     <form action="post_into_product_table.php" method="post" class="form">
         <input type="text" name="PDT_ID" placeholder="id" />
         <input type="text" name="PDT_NAME" placeholder="NAME" />
