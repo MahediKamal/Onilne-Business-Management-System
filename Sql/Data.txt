@@ -7,3 +7,103 @@ VALUES (1,'100',100, 'iPhoneX', 'Apple', 35000, 'ttt','yyy');
 
 INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
 VALUES (1, 'watch', 1, 'description', 10, 'm1.jpg', '100', '12', '10', '1');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (2, 'Jacket', 2, 'Men ', 10, 'm2.jpg', '100.00$', '12', '100', '10');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (3, 'Shoes', 3, 'Men ', 12, 'm3.jpg', '200.00$', '10', '120', '10');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (4, 'Pants', 5, 'Men ', 10, 'm4.jpg', '300.00$', '9', '150', '20');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (5, 'Sweater', 4, 'Men ', 15, 'm5.jpg', '150.00$', '4', '180', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (6, 'Jeans Shirt', 6, 'Men ', 20, 'm6.jpg', '250.00$', '11', '100', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (7, 'Red Jacket', 7, 'Men ', 6, 'm7.jpg', '400.00$', '13', '170', '40');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (8, 'Keds', 10, 'Men ', 30, 'm8.jpg', '50.00$', '12', '110', '25');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (9, 'Plain Shirt', 7, 'Men ', 35, 'm9.jpg', '90.00$', '16', '200', '70');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (10, 'T-Shirt', 40, 'Men ', 45, 'm10.jpg', '104.00$', '40', '210', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (11, 'Snicker', 50, 'Men ', 17, 'm11.jpg', '320.00$', '70', '310', '5');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (12, 'Trousers',35, 'Men ', 34, 'm12.jpg', '410.00$', '60', '50', '0');
+
+
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (13, 'Tops', 1, 'Women', 10, 'w1.jpg', '100', '12', '10', '1');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (14, 'Gshoe', 2, 'Women ', 10, 'w2.jpg', '100.00$', '12', '100', '10');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (15, 'Makeup', 3, 'Women ', 12, 'w3.jpg', '200.00$', '10', '120', '10');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (16, 'Serum', 5, 'Women ', 10, 'w4.jpg', '300.00$', '9', '150', '20');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (17, 'LShirt', 4, 'Women ', 15, 'w5.jpg', '150.00$', '4', '180', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (18, 'Bag', 6, 'Women ', 20, 'w6.jpg', '250.00$', '11', '100', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (19, 'Lipstick', 7, 'Women ', 6, 'w7.jpg', '400.00$', '13', '170', '40');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (20, 'Purse', 10, 'Women ', 30, 'w8.jpg', '50.00$', '12', '110', '25');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (21, 'Eyeshadow', 7, 'Women', 35, 'w9.jpg', '90.00$', '16', '200', '70');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (22, 'Jump Suit', 40, 'Women ', 45, 'w10.jpg', '104.00$', '40', '210', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (23, 'Wshoe', 50, 'Women ', 17, 'w11.jpg', '320.00$', '70', '310', '5');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (24, 'Liptint',35, 'Women ', 34, 'w12.jpg', '410.00$', '60', '50', '0');
+
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (25, 'KShirt', 1, 'Kids', 10, 'k1.jpg', '100', '12', '10', '1');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (26, 'Dress Set', 2, 'Kids ', 10, 'k2.jpg', '100.00$', '12', '100', '10');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (27, 'Shorts', 3, 'Kids ', 12, 'k3.jpg', '200.00$', '10', '120', '10');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (28, 'Tshirt set', 5, 'Kids ', 10, 'k4.jpg', '300.00$', '9', '150', '20');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (29, 'Baby Cosmatics', 4, 'Kids ', 15, 'k5.jpg', '150.00$', '4', '180', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (30, 'Diaper', 6, 'Kids ', 20, 'k6.jpg', '250.00$', '11', '100', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (31, 'Toy', 7, 'Kids ', 6, 'k7.jpg', '400.00$', '13', '170', '40');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (32, 'School Bag', 10, 'Kids ', 30, 'k8.jpg', '50.00$', '12', '110', '25');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (33, 'Baby Shoes', 7, 'Kids', 35, 'k9.jpg', '90.00$', '16', '200', '70');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (34, 'Bottles', 40, 'Kids ', 45, 'k10.jpg', '104.00$', '40', '210', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (35, 'Skirt', 50, 'Kids ', 17, 'k11.jpg', '320.00$', '70', '310', '5');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (36, 'Baby Snicker',35, 'Kids ', 34, 'k12.jpg', '410.00$', '60', '50', '0');
+
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (37, 'Iphone', 1, 'Electronics', 10, 'e1.jpg', '100', '12', '10', '1');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (38, 'Galaxy', 2, 'Electronics ', 10, 'e2.jpg', '100.00$', '12', '100', '10');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (39, 'Airpod', 3, 'Electronics ', 12, 'e3.jpg', '200.00$', '10', '120', '10');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (40, 'Camera', 5, 'Electronics ', 10, 'e4.jpg', '300.00$', '9', '150', '20');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (41, 'Vivo', 4, 'Electronics ', 15, 'e5.jpg', '150.00$', '4', '180', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (42, 'Head phone', 6, 'Electronics ', 20, 'e6.jpg', '250.00$', '11', '100', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (43, 'Power Bank', 7, 'Electronics ', 6, 'e7.jpg', '400.00$', '13', '170', '40');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (44, 'Laptop', 10, 'Electronics ', 30, 'e8.jpg', '50.00$', '12', '110', '25');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (45, 'Baby Shoes', 7, 'Electronics', 35, 'e9.jpg', '90.00$', '16', '200', '70');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (46, 'Sony Bravia', 40, 'Electronics ', 45, 'e10.jpg', '104.00$', '40', '210', '0');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (47, 'MacBook', 50, 'Electronics ', 17, 'e11.jpg', '320.00$', '70', '310', '5');
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (48, 'Ear phone',35, 'Electronics ', 34, 'e12.jpg', '410.00$', '60', '50', '0');
+
+
