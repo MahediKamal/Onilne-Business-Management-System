@@ -40,8 +40,8 @@
 
 
 
-        $cst_email = $_REQUEST['mail'];
-        $cst_password = $_REQUEST['pass'];
+        $admin_name = $_REQUEST['name'];
+        $admin_password = $_REQUEST['pass'];
         // $check = $_REQUEST['chk'];
 
         // echo   $cst_email .' ' . $cst_password;
@@ -49,14 +49,14 @@
         // validation
         
 
-        $sql = 'SELECT cst_email,cst_password'.
-        ' FROM customer '.
-        ' WHERE cst_email = :ml AND cst_password = :ps';
+        $sql = 'SELECT admin_name,admin_password'.
+        ' FROM admin_login '.
+        ' WHERE admin_name = :nm AND admin_password = :ps';
         
         $stmt = oci_parse($con, $sql);
         
-        oci_bind_by_name($stmt, ':ml', $cst_email, -1);
-        oci_bind_by_name($stmt, ':ps', $cst_password, -1);
+        oci_bind_by_name($stmt, ':nm', $admin_name, -1);
+        oci_bind_by_name($stmt, ':ps', $admin_password, -1);
         
         
         // echo $sql;
@@ -84,10 +84,17 @@
             oci_commit($con);
             oci_free_statement($stmt);
             oci_close($con);
-            
+
+            session_start();
+
+            $_SESSION['adminName'] = $admin_name;
+            $_SESSION['admin_password'] = $admin_password;
+
+            echo $_SESSION['adminName'];
+
             //-------------------redirect
             echo "<head>";
-            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
+            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../admin/index.php\" />";
             echo "</head>";
             
             exit;
@@ -108,8 +115,8 @@
                         echo "<form action=\"customer_login_post.php\" method=\"post\" class=\"form-container\">";
                             echo "<h1>Login</h1>";
                             echo "<div class=\"mb-3\">";
-                                echo "<label for=\"exampleInputEmail1\" class=\"form-label\">Email</label>";
-                                echo "<input type=\"email\" name=\"mail\" placeholder=\"Enter email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">";
+                                echo "<label for=\"exampleInputEmail1\" class=\"form-label\">Name</label>";
+                                echo "<input type=\"text\" name=\"name\" placeholder=\"Enter name\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\">";
                             echo "</div>";
                             echo "<div class=\"mb-3\">";
                                 echo "<label for=\"exampleInputPassword1\" class=\"form-label\">Password</label>";
@@ -135,7 +142,7 @@
             //-------------------redirect
             echo "<head>";
             echo "<title>done</title>";
-            echo "<meta http-equiv = \"refresh\" content = \"3; url = customer_login.php\" />";
+            echo "<meta http-equiv = \"refresh\" content = \"3; url = admin_login.php\" />";
             echo "</head>";
             exit;
         }
