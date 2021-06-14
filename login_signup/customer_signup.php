@@ -89,7 +89,7 @@
                         echo "</div>";
                         echo "<div class=\"form-row\">";
                         echo "<div class=\"col-lg-7\">";
-                        echo "<input type=\"text\" name=\"cst_password\" placeholder=\"*********\" class=\"form-control my-2 p-2 mx-4\">";
+                        echo "<input type=\"password\" name=\"cst_password\" placeholder=\"Password\" maxlength=\"8\" class=\"form-control my-2 p-2 mx-4\">";
                         echo "</div>";
 
 
