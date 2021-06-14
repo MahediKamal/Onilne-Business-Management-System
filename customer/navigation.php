@@ -252,17 +252,31 @@ nav{
          <a href="javascript:void(0);" class="search">
              <i class="fas fa-search"></i>
          </a>
-         <a href="../login_signup/customer_login.php" class="user">
-         <div class="pop">Login</div>
-             
-             <?php 
-                echo "<i class=\"far fa-user\" style=\"color:#00cc6a\"></i>";
-                if (isset($_SESSION['customer_name'])){
-                    echo "<span style=\"color:#00cc6a\"> $customer_name </span>";
-                }else{
-                    echo "<i class=\"far fa-user\" style=\"color:#00cc6a\"></i>";
-                }
-            ?>
+
+        <?php
+            $page = "customer_login.php";
+            if (isset($_SESSION['customer_name'])){
+                $page = "customer_logout.php";
+            }
+        ?>
+
+        <?php 
+         echo "<a href=\"../login_signup/$page\" class=\"user\">";
+            $state = "login";
+            if (isset($_SESSION['customer_name'])){
+                $state = "logout";
+            }
+            echo "<div class=\"pop\">$state</div>";
+        ?>
+                
+                <?php 
+                    if (isset($_SESSION['customer_name'])){
+                        echo "<i class=\"far fa-user\" style=\"color:#00cc6a\"></i>";
+                        echo "<span style=\"color:#00cc6a\"> $customer_name </span>";
+                    }else{
+                        echo "<i class=\"far fa-user\" style=\"color:#00cc6a\"></i>";
+                    }
+                ?>
          </a>
          <a href="./cart.php">
              <i class="fas fa-shopping-cart">
