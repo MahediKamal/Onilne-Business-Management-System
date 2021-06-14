@@ -109,7 +109,7 @@
         // price, name, img -> pdt_name, pdt_picture, pdt_price
         while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
             $pdt_name; $pdt_picture; $pdt_price;
-            $i = 1;
+            $i = 1;            
             foreach ($row as $item) {
                 if($i == 1) $pdt_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
                 if($i == 2) $pdt_picture = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);

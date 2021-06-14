@@ -20,7 +20,7 @@
     <div class="product-container">
         
           <?php
-            $query = "select pdt_name, pdt_picture, pdt_price from product where pdt_description = 'kids'";
+            $query = "select pdt_name, pdt_picture, pdt_price from product where pdt_description = 'Kids'";
             $section = "kids"; // folder name of images
             createCart_av($query, $con, $section);
           ?>
