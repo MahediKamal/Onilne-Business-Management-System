@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (isset($_SESSION['customer_name'])){
+        $customer_name = $_SESSION['customer_name'];
+    }
+?>
+
 <html>
 <head>
 <meta charset="utf-8">

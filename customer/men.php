@@ -1,9 +1,9 @@
 <?php
     $title = "men";
-    require_once 'navigation.php';
     require_once '../includes/connection.php';
     require_once '../includes/function.php';
     require_once 'customer_header.php';
+    require_once 'navigation.php';
 
 ?>
 

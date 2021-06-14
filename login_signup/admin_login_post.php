@@ -90,7 +90,7 @@
             $_SESSION['adminName'] = $admin_name;
             $_SESSION['admin_password'] = $admin_password;
 
-            echo $_SESSION['adminName'];
+            // echo $_SESSION['adminName'];
 
             //-------------------redirect
             echo "<head>";
