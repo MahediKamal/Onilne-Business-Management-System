@@ -1,5 +1,5 @@
 <?php
-
+    require_once 'customer_header.php';
     require_once 'navigation.php';
 
 ?>
