@@ -88,12 +88,35 @@ nav{
     font-size: 1.2rem;
     color: rgba(0,0,0,0.7);
 }
+ .pop{
+    position: absolute;
+    top: 43px;
+     background: #0b9d8a;
+     color:white;
+    font-size:16px;
+    margin-left:36px;
+    padding:5px 10px;
+    border-radius:10px;
+    box-shadow:0 10px 10px rgba(0,0,0,0.1);
+    opacity:0;
+    pointer-events:none; 
+}
+.user:hover .pop{
+    opacity: 1;
+    pointer-events:auto;
+}
+
 .menu a:hover,
 .right-menu a:hover,
 .search-cancel:hover,
-.form-cancel:hover{
+.form-cancel:hover .pop{
     color: #0b9d8a;
     transition: all ease 0.3s;
+ 
+}
+
+.navigation .right-menu .tooltip:before{
+
 }
 .sale-lable{
     width:38px;
@@ -545,7 +568,9 @@ footer{
          <a href="javascript:void(0);" class="search">
              <i class="fas fa-search"></i>
          </a>
-         <a href="javascript:void(0);" class="user">
+         
+         <a href="../login_signup/customer_login.php" class="user">
+         <div class="pop">Login</div>
              <i class="far fa-user"></i>
          </a>
          <a href="cart.php">
