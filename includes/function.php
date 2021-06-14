@@ -91,7 +91,7 @@
         echo "</div>";
     }
 
-    function createCart_av($query, $con){
+    function createCart_av($query, $con, $section){
 
         $s = oci_parse($con, $query);
         if (!$s) {
@@ -109,7 +109,7 @@
         // price, name, img -> pdt_name, pdt_picture, pdt_price
         while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
             $pdt_name; $pdt_picture; $pdt_price;
-            $i = 1;
+            $i = 1;            
             foreach ($row as $item) {
                 if($i == 1) $pdt_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
                 if($i == 2) $pdt_picture = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
@@ -125,12 +125,12 @@
                         echo "<i class=\"fas fa-shopping-cart\"></i>";
                     echo "</a>";
                     // <!--img------>
-                echo "<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTa5nRGbhEDEDxVFPnzDfK46jyjGQBYP4oSQ&usqp=CAU\">";
+                echo "<img src=\"../images/$section/$pdt_picture\">";
                 echo "</div>";
                 // <!--product-details-------->
                 echo "<div class=\"product-details\">";
-                    echo "<a href=\"#\" class=\"p-name\">Drawstring T-Shirt</a>";
-                    echo "<span class=\"p-price\">$22.00</span>";
+                    echo "<a href=\"#\" class=\"p-name\"> $pdt_name </a>";
+                    echo "<span class=\"p-price\">$pdt_price</span>";
                 echo "</div>";
             echo "</div>";
         }

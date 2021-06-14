@@ -254,7 +254,15 @@ nav{
          </a>
          <a href="../login_signup/customer_login.php" class="user">
          <div class="pop">Login</div>
-             <i class="far fa-user"></i>
+             
+             <?php 
+                echo "<i class=\"far fa-user\" style=\"color:#00cc6a\"></i>";
+                if (isset($_SESSION['customer_name'])){
+                    echo "<span style=\"color:#00cc6a\"> $customer_name </span>";
+                }else{
+                    echo "<i class=\"far fa-user\" style=\"color:#00cc6a\"></i>";
+                }
+            ?>
          </a>
          <a href="./cart.php">
              <i class="fas fa-shopping-cart">

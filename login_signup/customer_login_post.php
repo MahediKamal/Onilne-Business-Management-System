@@ -49,7 +49,7 @@
         // validation
         
 
-        $sql = 'SELECT cst_email,cst_password'.
+        $sql = 'SELECT cst_email,cst_password, cst_name'.
         ' FROM customer '.
         ' WHERE cst_email = :ml AND cst_password = :ps';
         
@@ -72,19 +72,28 @@
 
 
         $res_nm = 0;
+        $cst_name;
         while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
             foreach ($row as $item) {
                 $res_nm++;
+                if($res_nm == 3) $cst_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
             }
         }
 
 
-        if($res_nm == 2){ // valid input
+        if($res_nm == 3){ // valid input
             // echo $res_nm . "valid user";
             oci_commit($con);
             oci_free_statement($stmt);
             oci_close($con);
             
+            session_start();
+            $_SESSION['customer_mail'] = $cst_email;
+            $_SESSION['customer_password'] = $cst_password;
+            $_SESSION['customer_name'] = $cst_name;
+
+
+
             //-------------------redirect
             echo "<head>";
             echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
