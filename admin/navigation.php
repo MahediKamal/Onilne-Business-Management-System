@@ -1,4 +1,6 @@
-
+<?php
+    require_once '../includes/header.php';
+?>
 <style>
  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
@@ -49,6 +51,11 @@ nav ul li a:hover{
    <li><a href="customer_details_table.php">Customers</a></li>
    <li><a href="product_table.php">Products</a></li>
    <li><a href="supplier_table.php">Suppliers</a></li>
+   <?php echo "<li>";
+        echo "<i class=\"fa fa-user-circle-o fa-lg\" aria-hidden=\"true\" style=\"color:#00cc6a\">";
+        echo"<span class=\"badge badge-warning\" style=\"color:#00cc6a\">$admin_name</span></li></i>"; 
+    ?>
+   <!-- <li><i class="fa fa-user-circle-o" aria-hidden="true" style="color:#00cc6a"></i></li> -->
    </ul>
   </nav>
 

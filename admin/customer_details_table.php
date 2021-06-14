@@ -1,7 +1,9 @@
 
 <?php
+    session_start();
     $title = "admin: customer:details";
     $table_title = "Registered Customers:";
+    $admin_name = $_SESSION['adminName'];
     require_once '../includes/header.php';
     require_once '../includes/connection.php';
     require_once '../includes/function.php';

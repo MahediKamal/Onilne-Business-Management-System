@@ -85,6 +85,13 @@
             oci_free_statement($stmt);
             oci_close($con);
 
+            session_start();
+
+            $_SESSION['adminName'] = $admin_name;
+            $_SESSION['admin_password'] = $admin_password;
+
+            echo $_SESSION['adminName'];
+
             //-------------------redirect
             echo "<head>";
             echo "<meta http-equiv = \"refresh\" content = \"0; url = ../admin/index.php\" />";
