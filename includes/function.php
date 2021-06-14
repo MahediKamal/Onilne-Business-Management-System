@@ -91,5 +91,50 @@
         echo "</div>";
     }
 
+    function createCart_av($query, $con){
+
+        $s = oci_parse($con, $query);
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($s);
+
+        // price, name, img -> pdt_name, pdt_picture, pdt_price
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+            $pdt_name; $pdt_picture; $pdt_price;
+            $i = 1;
+            foreach ($row as $item) {
+                if($i == 1) $pdt_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 2) $pdt_picture = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 3) $pdt_price = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                $i++;
+            }
+            // ----------showing cart box-----------------
+            echo "<div class=\"product-box\">";
+            // <!--product-img------------>
+                echo "<div class=\"product-img\">";
+                    // <!--add-cart---->
+                    echo "<a href=\"#\" class=\"add-cart\">";
+                        echo "<i class=\"fas fa-shopping-cart\"></i>";
+                    echo "</a>";
+                    // <!--img------>
+                echo "<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTa5nRGbhEDEDxVFPnzDfK46jyjGQBYP4oSQ&usqp=CAU\">";
+                echo "</div>";
+                // <!--product-details-------->
+                echo "<div class=\"product-details\">";
+                    echo "<a href=\"#\" class=\"p-name\">Drawstring T-Shirt</a>";
+                    echo "<span class=\"p-price\">$22.00</span>";
+                echo "</div>";
+            echo "</div>";
+        }
+    }
+
 
 ?>
