@@ -1,9 +1,3 @@
-<html>
-<head>
-<meta charset="utf-8">
-<meta content="IE-edge" http-equiv="X-UA-Compatible">
-<meta content="width=device-width, intial-scale=1.0" name="viewport">
-<title>Shoppers Stop-Men</title>
 
 <!--JQuery--------------->
 <script src="js/JQuery.js"></script>
@@ -61,10 +55,6 @@ footer{
 }
 
 </style>
-	
-    </head>
-
-    <body>
 
  <!--footer---------------------------->
  <footer>
