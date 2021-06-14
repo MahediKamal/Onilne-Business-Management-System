@@ -43,6 +43,7 @@ create table product
  unit_order number(38) NOT NULL,
  pdt_description varchar(150) NOT NULL,
  pdt_quantity number(38) NOT NULL,
+ pdt_picture  varchar(150) NOT NULL,
  pdt_price varchar(150) NOT NULL,
  pdt_weight varchar(150) NOT NULL,
  pdt_stock varchar(150) NOT NULL,
