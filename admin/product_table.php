@@ -1,6 +1,8 @@
 <?php
+    session_start();
     $title = "admin: product";
     $table_title = "Product list:";
+    $admin_name = $_SESSION['adminName'];
     require_once '../includes/header.php';
     require_once '../includes/connection.php';
     require_once '../includes/function.php';

@@ -53,9 +53,11 @@
              echo "<label for=\"exampleInputPassword1\" class=\"form-label\">Password</label>";
              echo "<input type=\"password\" name=\"pass\" placeholder=\"Enter password\" class=\"form-control\" id=\"exampleInputPassword1\">";
              echo "</div>";
-             echo "<div class=\"mb-3 form-check\">";
-             echo "<input type=\"checkbox\" name=\"chk\" class=\"form-check-input\" id=\"exampleCheck1\">";
-             echo "<label class=\"form-check-label\" for=\"exampleCheck1\">Remember me</label>";
+             echo "<div class=\"mb-3\">";
+            //  echo "<input type=\"checkbox\" name=\"chk\" class=\"form-check-input\" id=\"exampleCheck1\">";
+            //  echo "<label class=\"form-check-label\" for=\"exampleCheck1\">Remember me</label>";
+            echo " <p>Don't have an account? <a href=\"customer_signup.php\">SIGN UP</a></p>";
+            
              echo "</div>";
                 
              echo "<input class=\"btn1\" type=\"submit\" name=\"submit\">";
@@ -68,7 +70,6 @@
 
              ?>
       <?php require_once '../includes/footer.php'; ?>
-
       </body>
       </html>
 

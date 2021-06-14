@@ -85,6 +85,7 @@
             oci_free_statement($stmt);
             oci_close($con);
             
+            //-------------------redirect
             echo "<head>";
             echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
             echo "</head>";
@@ -97,7 +98,7 @@
                 echo "Invalid username or password !\n Try again.";
             echo "</div>";
             
-            // -----------------from
+            // -----------------form
             echo "<div class=\"container-fluid bg\">";
 
             echo "<div class=\"row\">";
