@@ -51,7 +51,7 @@
              echo "</div>";
              echo "<div class=\"mb-3\">";
              echo "<label for=\"exampleInputPassword1\" class=\"form-label\">Password</label>";
-             echo "<input type=\"password\" name=\"pass\" placeholder=\"Enter password\" class=\"form-control\" id=\"exampleInputPassword1\">";
+             echo "<input type=\"password\" name=\"pass\" placeholder=\"Enter password\" class=\"form-control\" maxlength=\"8\" id=\"exampleInputPassword1\">";
              echo "</div>";
             
              echo "<input class=\"btn1\" type=\"submit\" name=\"submit\">";
