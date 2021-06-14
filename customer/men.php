@@ -1,6 +1,8 @@
 <?php
 
     require_once 'navigation.php';
+    require_once '../includes/connection.php';
+    require_once '../includes/function.php';
 
 ?>
 
@@ -169,23 +171,11 @@ a{
     <!--products----------------------->
     <div class="product-container">
         
-      <!--product-box-1---------->
-        <div class="product-box">
-            <!--product-img------------>
-            <div class="product-img">
-                <!--add-cart---->
-                <a href="#" class="add-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                <!--img------>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTa5nRGbhEDEDxVFPnzDfK46jyjGQBYP4oSQ&usqp=CAU">
-            </div>
-            <!--product-details-------->
-            <div class="product-details">
-                <a href="#" class="p-name">Drawstring T-Shirt</a>
-                <span class="p-price">$22.00</span>
-            </div>
-        </div>
+          <?php
+            $query = "select pdt_name, pdt_picture, pdt_price from product";
+            createCart_av($query, $con);
+          ?>
+
           <!--product-box-2---------->
           <div class="product-box">
               <!--product-img------------>

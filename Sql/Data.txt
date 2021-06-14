@@ -2,3 +2,8 @@ INSERT INTO supplier_info (supplier_id, supplier_name, supplier_company, supplie
 INSERT INTO supplier_info (supplier_id, supplier_name, supplier_company, supplier_phone, supplier_country) VALUES (3, 'pranto', 'PR_grp', '01888888', 'Bangladesh');
 INSERT INTO customer
 VALUES (1,'100',100, 'iPhoneX', 'Apple', 35000, 'ttt','yyy');
+
+
+
+INSERT INTO product (pdt_id, pdt_name, unit_order, pdt_description, pdt_quantity, pdt_picture, pdt_price, pdt_weight, pdt_stock, pdt_discount)
+VALUES (1, 'watch', 1, 'description', 10, 'm1.jpg', '100', '12', '10', '1');
