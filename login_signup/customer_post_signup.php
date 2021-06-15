@@ -204,6 +204,11 @@
             oci_free_statement($stmt);
             oci_close($con);
 
+            session_start();
+            $_SESSION['customer_mail'] = $cst_email;
+            $_SESSION['customer_password'] = $cst_password;
+            $_SESSION['customer_name'] = $cst_name;
+
             echo "<head>";
                 echo "<title>done</title>";
                 echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
