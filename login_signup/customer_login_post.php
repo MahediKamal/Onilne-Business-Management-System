@@ -34,6 +34,7 @@
     $title = "signup";
     require_once '../includes/connection.php';
     require_once '../includes/header.php';
+    require_once '../includes/function.php';
 
     // Check if the form is submitted
     if ( isset( $_POST['submit'] ) ) {
@@ -83,15 +84,97 @@
 
         if($res_nm == 3){ // valid input
             // echo $res_nm . "valid user";
-            oci_commit($con);
-            oci_free_statement($stmt);
-            oci_close($con);
+            ///------------------------------start----------------
+            // ------------------getting next cart_id
+            $sql = 'SELECT MAX(cart_id) FROM cart';
+            $stmt = oci_parse($con, $sql);
+            // echo $sql;
+            $rc = oci_execute($stmt);
+            if(!$rc){
+                $e = oci_error($stmt);
+                var_dump($e);
+            }
+            $cart_id = 0;
+            while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+                foreach ($row as $item) {
+                    $cart_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                }
+            }
+            // ------------------getting next order_id
+            $sql = 'SELECT MAX(order_id) FROM order_info';
+            $stmt = oci_parse($con, $sql);
+            // echo $sql;
+            $rc = oci_execute($stmt);
+            if(!$rc){
+                $e = oci_error($stmt);
+                var_dump($e);
+            }
+            $order_id = 0;
+            while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+                foreach ($row as $item) {
+                    $order_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                }
+            }
+            // ------------------getting next courier_id
+            $sql = 'SELECT MAX(courier_id) FROM courier';
+            $stmt = oci_parse($con, $sql);
+            // echo $sql;
+            $rc = oci_execute($stmt);
+            if(!$rc){
+                $e = oci_error($stmt);
+                var_dump($e);
+            }
+            $courier_id = 0;
+            while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+                foreach ($row as $item) {
+                    $courier_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                }
+            }
+            // ------------------getting next billing_id
+            $sql = 'SELECT MAX(billing_id) FROM billing_info';
+            $stmt = oci_parse($con, $sql);
+            // echo $sql;
+            $rc = oci_execute($stmt);
+            if(!$rc){
+                $e = oci_error($stmt);
+                var_dump($e);
+            }
+            $billing_id = 0;
+            while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+                foreach ($row as $item) {
+                    $billing_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                }
+            }
+            ///------------------------------end-------------------
+
             
+
+            /// initializing sesson and session variable
+            $order_id++;
+            $cart_id++;
+            $billing_id++;
+            $courier_id++;
             session_start();
             $_SESSION['customer_mail'] = $cst_email;
             $_SESSION['customer_password'] = $cst_password;
             $_SESSION['customer_name'] = $cst_name;
+            $_SESSION['cart_id'] = $cart_id;
+            $_SESSION['orde_id'] = $order_id;
+            $_SESSION['billing_id'] = $billing_id;
+            $_SESSION['courier_id'] = $courier_id;
 
+            echo $order_id. ' ' .$cart_id . ' ' . $billing_id. ' '. $courier_id;
+            // had to initialize billing_info table (as order id is foreign key of cart)
+            insert_dummy_row_into_billing_info_av($billing_id, $con);
+            // // cart_id,pdt_id,order_id
+            insert_dummy_row_into_cart_av($cart_id, $con);
+            insert_dummy_row_into_courier_av($courier_id, $con);
+            insert_dummy_row_into_order_info_av($order_id,$con);
+
+
+            oci_commit($con);
+            oci_free_statement($stmt);
+            oci_close($con);
 
 
             //-------------------redirect
