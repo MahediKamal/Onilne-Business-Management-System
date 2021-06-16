@@ -108,12 +108,13 @@
 
         // price, name, img -> pdt_name, pdt_picture, pdt_price
         while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
-            $pdt_name; $pdt_picture; $pdt_price;
+            $pdt_name; $pdt_picture; $pdt_price; $pdt_id;
             $i = 1;            
             foreach ($row as $item) {
-                if($i == 1) $pdt_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
-                if($i == 2) $pdt_picture = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
-                if($i == 3) $pdt_price = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 2) $pdt_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 2) $pdt_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 3) $pdt_picture = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 4) $pdt_price = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
                 $i++;
             }
             // ----------showing cart box-----------------
@@ -121,7 +122,7 @@
             // <!--product-img------------>
                 echo "<div class=\"product-img\">";
                     // <!--add-cart---->
-                    echo "<a href=\"#\" class=\"add-cart\">";
+                    echo "<a href='../includes/add_to_cart.php?pdt_id=$pdt_id&pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price' class=\"add-cart\">";
                         echo "<i class=\"fas fa-shopping-cart\"></i>";
                     echo "</a>";
                     // <!--img------>
@@ -134,6 +135,35 @@
                 echo "</div>";
             echo "</div>";
         }
+    }
+
+    function create_details_cart_av(){
+        // data from has_product_in_cart table
+        echo "<table>";
+            echo "<tr>";
+                echo "<th>Product</th>";
+                echo "<th>Quantity</th>";
+                echo "<th>Subtotal</th>";
+            echo "</tr>";
+            echo "<tr>";
+                echo "<td>";
+                    echo "<div class=\"cart-info\">";
+                        // image 
+                        echo "<img src=\"../images/p-1.png\" alt=\"\"  width=\"90px\"";
+                        echo "height=\"90px\" >";
+                        echo "<div>";
+                            // product  name, price
+                            echo "<p>Basic T-shirt</p>";
+                            echo "<small>Price: $50.00</small>";
+                            echo "<br>";
+                            echo "<a href=\"\">Remove</a>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</td>";    
+                echo "<td><input type=\"number\" value=\"1\"></td>";
+                echo "<td>$50.00</td>";            
+            echo "</tr>";
+        echo "</table>";
     }
 
 
