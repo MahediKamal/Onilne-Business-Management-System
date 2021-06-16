@@ -451,6 +451,8 @@ footer{
          </a>
 
         <?php
+            // session_start();
+            $cst_name = $_SESSION['customer_name'];
             $page = "customer_login.php";
             if (isset($_SESSION['customer_name'])){
                 $page = "customer_logout.php";
@@ -469,7 +471,7 @@ footer{
                 <?php 
                     if (isset($_SESSION['customer_name'])){
                         echo "<i class=\"far fa-user\" style=\"color:#00cc6a\"></i>";
-                        echo "<span style=\"color:#00cc6a\"> $customer_name </span>";
+                        echo "<span style=\"color:#00cc6a\"> $cst_name </span>";
                     }else{
                         echo "<i class=\"far fa-user\" style=\"color:#00cc6a\"></i>";
                     }

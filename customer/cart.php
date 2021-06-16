@@ -1,5 +1,13 @@
 <?php
-    require_once 'customer_header.php';
+    session_start();
+    
+    $cart_id = $_SESSION['cart_id'];
+    $order_id = $_SESSION['orde_id'];
+
+    // $pdt_id = $_GET['pdt_id'];
+
+    // require_once 'customer_header.php';
+    require_once '../includes/connection.php';
     require_once 'navigation.php';
     require_once '../includes/function.php';
 
@@ -118,7 +126,7 @@
     <div class="small-container cart-page">
 
     <?php
-        create_details_cart_av();
+        create_details_cart_av($con, $cart_id);
     ?>
         
 <div class="total-price">
