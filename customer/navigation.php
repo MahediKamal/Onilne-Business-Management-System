@@ -452,7 +452,9 @@ footer{
 
         <?php
             // session_start();
-            $cst_name = $_SESSION['customer_name'];
+            if (isset($_SESSION['customer_name'])){
+                $cst_name = $_SESSION['customer_name'];
+            }
             $page = "customer_login.php";
             if (isset($_SESSION['customer_name'])){
                 $page = "customer_logout.php";
