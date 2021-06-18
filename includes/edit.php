@@ -39,12 +39,12 @@
     if($pk_field == "SUPPLIER_ID"){
         // ..........................posting new value..........................
         echo "<form action=\"../admin/post_into_supplier_table.php\" method=\"post\">";
-            echo "<input type=\"text\" name=\"supplier_id\" placeholder=$row[SUPPLIER_ID] />";
-            echo "<input type=\"text\" name=\"supplier_name\" placeholder=$row[SUPPLIER_NAME] />";
+            echo "<input type=\"text\" name=\"supplier_id\" required placeholder=$row[SUPPLIER_ID] />";
+            echo "<input type=\"text\" name=\"supplier_name\" required placeholder=$row[SUPPLIER_NAME] />";
 
-            echo "<input type=\"text\" name=\"supplier_company\" placeholder=$row[SUPPLIER_COMPANY] />";
-            echo "<input type=\"text\" name=\"supplier_phone\" placeholder=$row[SUPPLIER_PHONE] />";
-            echo "<input type=\"text\" name=\"supplier_country\" placeholder=$row[SUPPLIER_COUNTRY] />";
+            echo "<input type=\"text\" name=\"supplier_company\" required placeholder=$row[SUPPLIER_COMPANY] />";
+            echo "<input type=\"tel\" name=\"supplier_phone\" required pattern=\"[0]{1}[0-9]+\" placeholder=$row[SUPPLIER_PHONE] />";
+            echo "<input type=\"text\" name=\"supplier_country\" required  placeholder=$row[SUPPLIER_COUNTRY] />";
             echo "<input type=\"submit\" name=\"submit\" class=\"btn btn-outline-success btn-sm\"/>";
         echo "</form>";
         // .......deleting new value.................
