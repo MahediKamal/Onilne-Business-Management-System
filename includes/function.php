@@ -292,13 +292,14 @@
             $payment_status = "paid";
             $total_discount = "100.00%";
             $order_cancel = "No";
-            $cst_id = 1;
-            $cart_id = 1;
-            $courier_id = 1;
+            
+            $cst_id = $_SESSION['cst_id'];
+            $courier_id = $_SESSION['courier_id'];
+
 
             $query = 'INSERT INTO order_info'. 
-            '(order_id, order_date, estimated_date, delivery_date, freight_charge, payment_status, total_discount, order_cancel, cst_id, cart_id,courier_id)'.
-            'VALUES (:o_id, :o_dt, :e_dt, :d_dt, :fc, :ps, :td, :oc, :c_id, :cr_id, :cor_id)';
+            '(order_id, order_date, estimated_date, delivery_date, freight_charge, payment_status, total_discount, order_cancel, cst_id, courier_id)'.
+            'VALUES (:o_id, :o_dt, :e_dt, :d_dt, :fc, :ps, :td, :oc, :c_id, :cor_id)';
 
             $stmt = oci_parse($con, $query);
             
@@ -311,7 +312,6 @@
             oci_bind_by_name($stmt, ':td', $total_discount, -1);
             oci_bind_by_name($stmt, ':oc', $order_cancel, -1);
             oci_bind_by_name($stmt, ':c_id', $cst_id, -1);
-            oci_bind_by_name($stmt, ':cr_id', $cart_id, -1);
             oci_bind_by_name($stmt, ':cor_id', $courier_id, -1);
 
 
