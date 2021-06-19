@@ -139,9 +139,15 @@
 
     function create_details_cart_av($con, $cart_id){
         // data from has_product_in_cart table
-        $query = 'SELECT pdt_picture, pdt_name, pdt_price FROM product '.
-        'WHERE (pdt_id) in' .
-        '(SELECT pdt_id FROM has_product_in_cart WHERE cart_id = :c_id)';
+        // $query = 'SELECT pdt_picture, pdt_name, pdt_price FROM product '.
+        // 'WHERE (pdt_id) in' .
+        // '(SELECT pdt_id FROM has_product_in_cart WHERE cart_id = :c_id)';
+
+        $query = 'SELECT hp.quantity, p.pdt_picture, p.pdt_name, p.pdt_price, p.pdt_id 
+        FROM product p 
+        INNER JOIN has_product_in_cart hp
+        ON hp.PDT_ID  =  p.PDT_ID
+        WHERE hp.cart_id = :c_id';
 
         ///// 
         $stm = oci_parse($con, $query);
@@ -169,13 +175,16 @@
                 echo "<th>Quantity</th>";
                 echo "<th>Subtotal</th>";
             echo "</tr>";
+        $total_price = 0;
         while (($row = oci_fetch_array($stm, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
-            $pdt_name; $pdt_picture; $pdt_price; 
+            $pdt_name; $pdt_picture; $pdt_price; $quantity; $pdt_id;
             $i = 1;            
             foreach ($row as $item) {
-                if($i == 1) $pdt_picture = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
-                if($i == 2) $pdt_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
-                if($i == 3) $pdt_price = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 1) $quantity = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 2) $pdt_picture = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 3) $pdt_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 4) $pdt_price = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 5) $pdt_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
                 $i++;
             }
             // $pdt_id = 1;
@@ -194,12 +203,18 @@
                                 echo "<p>$pdt_name</p>";
                                 echo "<small>Price: $pdt_price</small>";
                                 echo "<br>";
-                                echo "<a href=\"\">Remove</a>";
+                                echo "<a href=\"../includes/remove_from_cart.php?pdt_id=$pdt_id\">Remove</a>";
                             echo "</div>";
                         echo "</div>";
                     echo "</td>";    
-                    echo "<td><input type=\"number\" value=\"1\"></td>";
-                    echo "<td>$50.00</td>";            
+                    // echo "<td><input type=\"number\" value=\"$quantity\"></td>";
+                    echo "<td><a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id \" class=\" \"> + $quantity - </a></td>";
+                    // substr(string_name, start_pos, length_to_cut) 
+                    // $q = ltrim($str, '$');
+                    $p = ltrim($pdt_price, '$');
+                    $cst = strval($p)*strval($quantity);
+                    echo "<td> $$cst </td>";  
+                    $total_price += $cst;     
                 echo "</tr>";
             
             
@@ -207,6 +222,24 @@
         echo "</table>";
 
         /////
+        $shipping_charge = 50;   
+        echo "<div class=\"total-price\">";
+        echo "<table>";
+            echo "<tr>";
+                echo "<td>Subtotal</td>";
+                echo "<td>$$total_price</td>";
+            echo "</tr>";
+            echo "<tr>";
+                echo "<td>Shipping Charge</td>";
+                echo "<td>$shipping_charge</td>";
+            echo "</tr>";
+            echo "<tr>";
+                echo "<td>Total</td>";
+                $tot = $total_price+$shipping_charge;
+                echo "<td>$tot</td>";
+            echo "</tr>";
+        echo "</table>";
+        echo "</div>";
 
         
     }
