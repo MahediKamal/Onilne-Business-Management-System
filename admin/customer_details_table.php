@@ -16,7 +16,7 @@
     FROM ((customer
     INNER JOIN login ON customer.cst_id = login.cst_id)
     INNER JOIN customer_phone ON customer.cst_id = customer_phone.cst_id)";
-    $action = 1; // action 1, means we want add & delete button in the table
+    $action = 0; // action 1, means we want add & delete button in the table
     $table = "customer";
     CreateTable_av($query, $con, $action, $table);
 

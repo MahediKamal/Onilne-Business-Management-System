@@ -177,7 +177,7 @@
             echo "</tr>";
         $total_price = 0;
         while (($row = oci_fetch_array($stm, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
-            $pdt_name; $pdt_picture; $pdt_price; $quantity; $pdt_id;
+            $pdt_name; $pdt_picture; $pdt_price = 0; $quantity; $pdt_id;
             $i = 1;            
             foreach ($row as $item) {
                 if($i == 1) $quantity = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
@@ -228,7 +228,9 @@
         echo "</table>";
 
         /////
-        $shipping_charge = 50;   
+        if($total_price > 0)
+            $shipping_charge = $total_price * 0.081;   
+        else $shipping_charge = 0;
         echo "<div class=\"total-price\">";
         echo "<table>";
             echo "<tr>";

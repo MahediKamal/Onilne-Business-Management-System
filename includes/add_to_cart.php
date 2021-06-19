@@ -45,7 +45,8 @@
     }
     else{// add to quantity
         if(isset($_GET['isdec'])){
-            $quantity--;
+            if($quantity>0)
+                $quantity--;
         }else $quantity++;
         $query = 'UPDATE has_product_in_cart
         SET quantity = :qnt
