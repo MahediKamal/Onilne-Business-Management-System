@@ -5,29 +5,29 @@
    background-size: cover;
    background-attachment: fixed;
 
-}
-.form-container{
-    border: 1px solid white;
-    padding: 40px 60px;
-    margin-top: 20vh;
-    box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.25);
-}
-.btn1
-{
-    border: none;
-            outline: none;
-            height: 45px;
-            width: 100%;
-            background-color: black;
-            color: white;
-            border-radius: 4px;
+    }
+    .form-container{
+        border: 1px solid white;
+        padding: 40px 60px;
+        margin-top: 20vh;
+        box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.25);
+    }
+    .btn1
+    {
+        border: none;
+                outline: none;
+                height: 45px;
+                width: 100%;
+                background-color: black;
+                color: white;
+                border-radius: 4px;
 
-}
-.btn1:hover{
-    background: white;
-    border: 1px solid;
-    color: black;
-}
+    }
+    .btn1:hover{
+        background: white;
+        border: 1px solid;
+        color: black;
+    }
 </style>
 
 <?php 
@@ -50,9 +50,15 @@
         // validation
         
 
-        $sql = 'SELECT cst_email,cst_password, cst_name'.
-        ' FROM customer '.
-        ' WHERE cst_email = :ml AND cst_password = :ps';
+        // $sql = 'SELECT cst_email,cst_password, cst_name'.
+        // ' FROM customer '.
+        // ' WHERE cst_email = :ml AND cst_password = :ps';
+
+        $sql = 'SELECT customer.cst_name, customer.cst_email, login.login_password ' . 
+        'FROM (customer ' .
+        'INNER JOIN login ON ' . 
+        ' customer.cst_email = :ml AND login.login_password = :ps AND customer.cst_id = login.cst_id)';
+        
         
         $stmt = oci_parse($con, $sql);
         
@@ -77,18 +83,17 @@
         while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
             foreach ($row as $item) {
                 $res_nm++;
-                if($res_nm == 3) $cst_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($res_nm == 1) $cst_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
             }
         }
 
 
-        if($res_nm == 3){ // valid input
+        if($res_nm == 3){ // -------------------- valid input
             // echo $res_nm . "valid user";
             ///------------------------------start----------------
             // ------------------getting next cart_id
             $sql = 'SELECT MAX(cart_id) FROM cart';
             $stmt = oci_parse($con, $sql);
-            // echo $sql;
             $rc = oci_execute($stmt);
             if(!$rc){
                 $e = oci_error($stmt);
@@ -103,7 +108,6 @@
             // ------------------getting next order_id
             $sql = 'SELECT MAX(order_id) FROM order_info';
             $stmt = oci_parse($con, $sql);
-            // echo $sql;
             $rc = oci_execute($stmt);
             if(!$rc){
                 $e = oci_error($stmt);
@@ -118,7 +122,6 @@
             // ------------------getting next courier_id
             $sql = 'SELECT MAX(courier_id) FROM courier';
             $stmt = oci_parse($con, $sql);
-            // echo $sql;
             $rc = oci_execute($stmt);
             if(!$rc){
                 $e = oci_error($stmt);
@@ -133,7 +136,6 @@
             // ------------------getting next billing_id
             $sql = 'SELECT MAX(billing_id) FROM billing_info';
             $stmt = oci_parse($con, $sql);
-            // echo $sql;
             $rc = oci_execute($stmt);
             if(!$rc){
                 $e = oci_error($stmt);
@@ -145,25 +147,36 @@
                     $billing_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
                 }
             }
+            // ------------------getting next customer_id
+            $sql = 'SELECT MAX(cst_id) FROM customer';
+            $stmt = oci_parse($con, $sql);
+            $rc = oci_execute($stmt);
+            if(!$rc){
+                $e = oci_error($stmt);
+                var_dump($e);
+            }
+            $cst_id = 0;
+            while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+                foreach ($row as $item) {
+                    $cst_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                }
+            }
             ///------------------------------end-------------------
-
+            $cart_id++; $order_id++; $courier_id++; $billing_id++;
             
 
             /// initializing sesson and session variable
-            $order_id++;
-            $cart_id++;
-            $billing_id++;
-            $courier_id++;
             session_start();
             $_SESSION['customer_mail'] = $cst_email;
             $_SESSION['customer_password'] = $cst_password;
             $_SESSION['customer_name'] = $cst_name;
+            $_SESSION['cst_id'] = $cst_id;
             $_SESSION['cart_id'] = $cart_id;
             $_SESSION['orde_id'] = $order_id;
             $_SESSION['billing_id'] = $billing_id;
             $_SESSION['courier_id'] = $courier_id;
 
-            echo $order_id. ' ' .$cart_id . ' ' . $billing_id. ' '. $courier_id;
+            // echo $order_id. ' ' .$cart_id . ' ' . $billing_id. ' '. $courier_id;
             // had to initialize billing_info table (as order id is foreign key of cart)
             insert_dummy_row_into_billing_info_av($billing_id, $con);
             // // cart_id,pdt_id,order_id
@@ -225,10 +238,10 @@
             oci_free_statement($stmt);
             oci_close($con);
             //-------------------redirect
-            echo "<head>";
-            echo "<title>done</title>";
-            echo "<meta http-equiv = \"refresh\" content = \"3; url = customer_login.php\" />";
-            echo "</head>";
+            // echo "<head>";
+            // echo "<title>done</title>";
+            // echo "<meta http-equiv = \"refresh\" content = \"3; url = customer_login.php\" />";
+            // echo "</head>";
             exit;
         }
 

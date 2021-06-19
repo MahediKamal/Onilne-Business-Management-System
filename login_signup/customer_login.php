@@ -8,29 +8,29 @@
    background-size: cover;
    background-attachment: fixed;
 
-}
-.form-container{
-    border: 1px solid white;
-    padding: 40px 60px;
-    margin-top: 20vh;
-    box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.25);
-}
-.btn1
-{
-    border: none;
-            outline: none;
-            height: 45px;
-            width: 100%;
-            background-color: black;
-            color: white;
-            border-radius: 4px;
+    }
+    .form-container{
+        border: 1px solid white;
+        padding: 40px 60px;
+        margin-top: 20vh;
+        box-shadow: -1px 4px 26px 11px rgba(0,0,0,0.25);
+    }
+    .btn1
+    {
+        border: none;
+                outline: none;
+                height: 45px;
+                width: 100%;
+                background-color: black;
+                color: white;
+                border-radius: 4px;
 
-}
-.btn1:hover{
-    background: white;
-    border: 1px solid;
-    color: black;
-}
+    }
+    .btn1:hover{
+        background: white;
+        border: 1px solid;
+        color: black;
+    }
 
 
 </style>
