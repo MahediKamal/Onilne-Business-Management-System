@@ -1,11 +1,11 @@
 <?php 
     $title = "product:add";
-    // require_once '../includes/header.php';
     require_once '../includes/connection.php';
 
     // Check if the form is submitted
     if ( isset( $_POST['submit'] ) ) {
 
+        $PDT_ID = $_GET['pdt_id'];
         // $PDT_ID = $_REQUEST['PDT_ID'];
         $PDT_NAME = $_REQUEST['PDT_NAME'];
         $UNIT_ORDER = $_REQUEST['UNIT_ORDER'];
@@ -20,16 +20,21 @@
         $SUPPLIER_ID = $_REQUEST['SUPPLIER_ID'];
 
         
-        echo    $PDT_NAME . ' ' . $UNIT_ORDER . ' ' . $PDT_STOCK . ' '.$PDT_DISCOUNT;
+        // echo    $PDT_NAME . ' ' . $UNIT_ORDER . ' ' . $PDT_STOCK . ' '.$PDT_DISCOUNT;
 
-        //////////// inserting in detabase
-        $sql = 'INSERT INTO product (PDT_ID, PDT_NAME, UNIT_ORDER, PDT_DESCRIPTION, PDT_QUANTITY, '.
-        'PDT_PICTURE, PDT_PRICE, PDT_WEIGHT, PDT_STOCK, PDT_DISCOUNT, CATEGORY_ID, SUPPLIER_ID)'. 
-        'VALUES (pdt_id_sequence.nextval, :nme, :ord, :dsc, :qnt, :pic, :prc, :wt, :stk, :dis, :c_id, :s_id)';
+        //////////// update in detabase
+        // $sql = 'INSERT INTO product (PDT_ID, PDT_NAME, UNIT_ORDER, PDT_DESCRIPTION, PDT_QUANTITY, '.
+        // 'PDT_PICTURE, PDT_PRICE, PDT_WEIGHT, PDT_STOCK, PDT_DISCOUNT, CATEGORY_ID, SUPPLIER_ID)'. 
+        // 'VALUES (pdt_id_sequence.nextval, :nme, :ord, :dsc, :qnt, :pic, :prc, :wt, :stk, :dis, :c_id, :s_id)';
+        $sql = 'UPDATE product
+        SET PDT_NAME = :nme, UNIT_ORDER = :ord, PDT_DESCRIPTION = :dsc, PDT_QUANTITY = :qnt, PDT_PICTURE = :pic,
+        PDT_PRICE = :prc, PDT_WEIGHT = :wt, PDT_STOCK = :stk, PDT_DISCOUNT = :dis, CATEGORY_ID = :c_id, SUPPLIER_ID = :s_id
+        WHERE pdt_id = :id';
 
+        echo $sql;
         $stmt = oci_parse($con, $sql);
 
-        // oci_bind_by_name($stmt, ':id', $PDT_ID, -1);
+        oci_bind_by_name($stmt, ':id', $PDT_ID, -1);
         oci_bind_by_name($stmt, ':nme', $PDT_NAME, -1);
         oci_bind_by_name($stmt, ':ord', $UNIT_ORDER, -1);
         oci_bind_by_name($stmt, ':dsc', $PDT_DESCRIPTION, -1);
