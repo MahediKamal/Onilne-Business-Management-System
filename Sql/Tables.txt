@@ -1,3 +1,168 @@
+--------------------------updated---------------------------------
+-- supplier
+CREATE SEQUENCE  supplier_id_sequence START WITH 1 INCREMENT BY 1;
+
+CREATE TABLE supplier_info( 
+    supplier_id NUMBER(38) NOT NULL PRIMARY KEY, 
+    supplier_name VARCHAR(150),  
+    supplier_company VARCHAR(150), 
+    supplier_phone NUMBER(30) NOT NULL, 
+    supplier_country VARCHAR(150)
+);
+
+INSERT INTO  supplier_info VALUES (supplier_id_sequence.nextval, 'avash', 'av_grp', 01837633353, 'bangladesh'); 
+INSERT INTO  supplier_info VALUES (supplier_id_sequence.nextval, 'amrin', 'am_grp', 01837633353, 'bangladesh'); 
+INSERT INTO  supplier_info VALUES (supplier_id_sequence.nextval, 'afrina', 'af_grp', 01837633353, 'bangladesh'); 
+
+SELECT * FROM supplier_info;
+
+
+
+INSERT INTO product VALUES (pdt_id_sequence.nextval, 'shoe', 2, 'desc', 20, 'm2.jpg', '$100.00', '2 kg',  30, '5%', 1, 1);
+
+SELECT * FROM product;
+
+///////////////////////////////////////
+
+-- customer
+
+CREATE SEQUENCE  cst_id_sequence START WITH 1 INCREMENT BY 1;
+-- drop table customer;
+create table customer
+(
+ cst_id NUMBER(38) NOT NULL PRIMARY KEY, 
+ cst_name varchar(150) NOT NULL,
+ cst_email varchar(150) NOT NULL,
+ cst_city varchar(150) NOT NULL,
+ cst_houseno number(38) NOT NULL,
+ cst_street varchar(150) NOT NULL
+);
+
+CREATE SEQUENCE  login_id_sequence START WITH 1 INCREMENT BY 1;
+-- drop table login;
+create table login
+(
+ login_id NUMBER(38) NOT NULL PRIMARY KEY, 
+ login_name varchar(150) NOT NULL,
+ login_password varchar(8) NOT NULL,
+ cst_id NUMBER(38),foreign key(cst_id) references customer(cst_id)
+);
+
+INSERT INTO customer VALUES (cst_id_sequence.nextval, 'avash', 'avs@g.com', 'dhaka', 10, 'sr_street'); 
+SELECT * FROM customer;
+
+INSERT INTO login VALUES (login_id_sequence.nextval, 'avash', '123', 2);
+
+
+create table customer_phone
+(
+ cst_id NUMBER(38),foreign key(cst_id) references customer(cst_id),
+ cst_phone number(11) NOT NULL,
+ primary key(cst_id,cst_phone)
+);
+
+INSERT INTO customer_phone VALUES (2, 01837633353);
+
+SELECT * FROM customer_phone;
+
+/////////////////////
+CREATE SEQUENCE  courier_id_sequence START WITH 1 INCREMENT BY 1;
+create table courier
+(
+ courier_id NUMBER(38) NOT NULL PRIMARY KEY, 
+ courier_company varchar(150) NOT NULL
+);
+INSERT INTO courier VALUES (courier_id_sequence.nextval, 'green_line');
+
+CREATE SEQUENCE order_id_sequence START WITH 1 INCREMENT BY 1;
+create table order_info
+(
+ order_id NUMBER(38) NOT NULL PRIMARY KEY, 
+ order_date date NOT NULL,
+ estimated_date date NOT NULL,
+ delivery_date date NOT NULL,
+ freight_charge varchar(150) NOT NULL,
+ payment_status varchar(150) NOT NULL,
+ total_discount varchar(150) NOT NULL,
+ order_cancel varchar(150) NOT NULL,
+ cst_id NUMBER(38),foreign key(cst_id) references customer(cst_id),
+ courier_id NUMBER(38),foreign key(courier_id) references courier(courier_id)
+);
+
+INSERT INTO order_info VALUES
+(order_id_sequence.nextval, '01-AUG-1', '01-AUG-1', '01-AUG-1', '50.0$', 'processiog', '10.0$', 'NO', 2, 1);
+
+
+CREATE SEQUENCE billing_id_sequence START WITH 1 INCREMENT BY 1;
+create table billing_info
+(
+  billing_id NUMBER(38) NOT NULL PRIMARY KEY, 
+  payment_type varchar(150) NOT NULL,
+  pin_number number(30) NOT NULL
+);
+
+INSERT INTO billing_info VALUES (billing_id_sequence.nextval, 'bkash', 123);
+
+CREATE SEQUENCE cart_id_sequence START WITH 1 INCREMENT BY 1;
+create table cart
+(
+  cart_id NUMBER(38) NOT NULL PRIMARY KEY, 
+  total varchar(150) NOT NULL,
+  num_of_pdt number(30) NOT NULL,
+  billing_id NUMBER(38),foreign key(billing_id) references billing_info(billing_id)
+);
+
+INSERT INTO cart VALUES (cart_id_sequence.nextval, '1000.0$', 3, 1);
+
+
+-- category
+CREATE SEQUENCE  category_id_sequence START WITH 1 INCREMENT BY 1;
+
+create table pdt_category(
+  category_id NUMBER(38) NOT NULL PRIMARY KEY, 
+  category_name varchar(150) NOT NULL
+);
+
+INSERT INTO pdt_category VALUES (category_id_sequence.nextval, 'Men');
+
+-- product
+CREATE SEQUENCE  pdt_id_sequence START WITH 1 INCREMENT BY 1;
+
+create table product(
+ pdt_id NUMBER(38) NOT NULL PRIMARY KEY, 
+ pdt_name varchar(150) NOT NULL,
+ unit_order number(38) NOT NULL,
+ pdt_description varchar(150) NOT NULL,
+ pdt_quantity number(38) NOT NULL,
+ pdt_picture  varchar(150) NOT NULL,
+ pdt_price varchar(150) NOT NULL,
+ pdt_weight varchar(150) NOT NULL,
+ pdt_stock NUMBER(38) NOT NULL,
+ pdt_discount varchar(150) NOT NULL,
+ category_id NUMBER(38),foreign key(category_id) references pdt_category(category_id),
+ supplier_id NUMBER(38),foreign key(supplier_id) references supplier_info(supplier_id)
+);
+
+INSERT INTO product VALUES (pdt_id_sequence.nextval, 'shoe', 2, 'desc', 20, 'm2.jpg', '$100.00', '2 kg',  30, '5%', 1, 1);
+
+SELECT * FROM product;
+
+
+create table has_product_in_cart
+(
+cart_id NUMBER(38),foreign key(cart_id) references cart(cart_id),
+pdt_id NUMBER(38),foreign key(pdt_id) references product(pdt_id),
+order_id NUMBER(38),foreign key(order_id) references order_info(order_id)
+);
+
+INSERT INTO has_product_in_cart VALUES (1, 1, 21);
+
+
+
+
+
+
+-----------------------------------------------------old----------------------------------------------------
 create table customer
 (
  cst_id NUMBER(38) NOT NULL PRIMARY KEY, 

@@ -58,10 +58,10 @@
 
                     // <!-- ............................form.................... -->
                     echo "<form action=\"customer_post_signup.php\" method=\"post\">";
-                        echo "<div class=\"form-row\">";
-                        echo "<div class=\"col-lg-7\">";
-                        echo " <input type=\"number\" name=\"cst_id\" placeholder=\"ID\" class=\"form-control my-2 p-2 mx-4\" >";
-                        echo "</div>";
+                        // echo "<div class=\"form-row\">";
+                        // echo "<div class=\"col-lg-7\">";
+                        // echo " <input type=\"number\" name=\"cst_id\" placeholder=\"ID\" class=\"form-control my-2 p-2 mx-4\" >";
+                        // echo "</div>";
                         echo "<div class=\"form-row\">";
                         echo "<div class=\"col-lg-7\">";
                         echo "<input type=\"text\" name=\"cst_name\" placeholder=\"Name\" class=\"form-control my-2 p-2 mx-4\">";

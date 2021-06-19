@@ -39,12 +39,12 @@
     if($pk_field == "SUPPLIER_ID"){
         // ..........................posting new value..........................
         echo "<form action=\"../admin/post_into_supplier_table.php\" method=\"post\">";
-            echo "<input type=\"text\" name=\"supplier_id\" placeholder=$row[SUPPLIER_ID] />";
-            echo "<input type=\"text\" name=\"supplier_name\" placeholder=$row[SUPPLIER_NAME] />";
+            echo "<input type=\"text\" name=\"supplier_id\" required placeholder=$row[SUPPLIER_ID] />";
+            echo "<input type=\"text\" name=\"supplier_name\" required placeholder=$row[SUPPLIER_NAME] />";
 
-            echo "<input type=\"text\" name=\"supplier_company\" placeholder=$row[SUPPLIER_COMPANY] />";
-            echo "<input type=\"text\" name=\"supplier_phone\" placeholder=$row[SUPPLIER_PHONE] />";
-            echo "<input type=\"text\" name=\"supplier_country\" placeholder=$row[SUPPLIER_COUNTRY] />";
+            echo "<input type=\"text\" name=\"supplier_company\" required placeholder=$row[SUPPLIER_COMPANY] />";
+            echo "<input type=\"tel\" name=\"supplier_phone\" required pattern=\"[0]{1}[0-9]+\" placeholder=$row[SUPPLIER_PHONE] />";
+            echo "<input type=\"text\" name=\"supplier_country\" required  placeholder=$row[SUPPLIER_COUNTRY] />";
             echo "<input type=\"submit\" name=\"submit\" class=\"btn btn-outline-success btn-sm\"/>";
         echo "</form>";
         // .......deleting new value.................
@@ -88,6 +88,39 @@
             $m = oci_error($s);
             trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
         }
+    }
+    else if($pk_field == "PDT_ID"){
+        echo "edid product";
+
+        echo "<form action=\"../admin/update_product.php?pdt_id=$pk_val\" method=\"post\" class=\"form\">";
+            // <!-- <input type="text" name="PDT_ID" placeholder="id" /> -->
+            echo "<input type=\"text\" name=\"PDT_NAME\" placeholder=\"NAME\" />";
+
+            echo "<input type=\"text\" name=\"UNIT_ORDER\" placeholder=\"UNIT_ORDER\" />";
+            echo "<input type=\"text\" name=\"PDT_DESCRIPTION\" placeholder=\"description\" />";
+            echo "<input type=\"text\" name=\"PDT_QUANTITY\" placeholder=\"quantity\" />";
+            echo "<input type=\"text\" name=\"PDT_PICTURE\" placeholder=\"picture\" />";
+
+            echo "<input type=\"text\" name=\"PDT_PRICE\" placeholder=\"price\" />";
+            echo "<input type=\"text\" name=\"PDT_WEIGHT\" placeholder=\"weight\" />";
+            echo "<input type=\"text\" name=\"PDT_STOCK\" placeholder=\"stock\" />";
+            echo "<input type=\"text\" name=\"PDT_DISCOUNT\" placeholder=\"discount\" />";
+            echo "<input type=\"text\" name=\"CATEGORY_ID\" placeholder=\"CATEGORY_ID\" />";
+            echo "<input type=\"text\" name=\"SUPPLIER_ID\" placeholder=\"SUPPLIER_ID\" />";
+            
+            echo "<input type=\"submit\" name=\"submit\" class=\"btn btn-outline-success btn-sm\"/>";
+        echo "</form>";
+        /*
+        UPDATE
+            table_name
+        SET
+            column1 = value1,
+            column2 = value2,
+            column3 = value3,
+            ...
+        WHERE
+            condition;
+        */
     }
 
     echo " edited from $table where PK is $pk_field and PK value is $pk_val";

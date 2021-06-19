@@ -19,12 +19,12 @@
     <div>
     <h3>Add new supplier:</h3>
     <form action="post_into_supplier_table.php" method="post" class="form">
-        <input type="text" name="supplier_id" placeholder="SUPPLIER_ID" />
-        <input type="text" name="supplier_name" placeholder="SUPPLIER_NAME" />
+        <!-- <input type="text" name="supplier_id" placeholder="SUPPLIER_ID" /> -->
+        <input type="text" name="supplier_name" required placeholder="SUPPLIER_NAME" />
 
-        <input type="text" name="supplier_company" placeholder="SUPPLIER_COMPANY" />
-        <input type="text" name="supplier_phone" placeholder="SUPPLIER_PHONE" />
-        <input type="text" name="supplier_country" placeholder="SUPPLIER_COUNTRY" />
+        <input type="text" name="supplier_company" required placeholder="SUPPLIER_COMPANY" />
+        <input type="tel"  name="supplier_phone" pattern="[0]{1}[0-9]+" required placeholder="01XXXXXXXXX"/>
+        <input type="text" name="supplier_country" required placeholder="SUPPLIER_COUNTRY" />
 
         <input type="submit" name="submit" class="btn btn-outline-success btn-sm"/>
     </form> 
