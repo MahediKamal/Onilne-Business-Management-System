@@ -208,7 +208,13 @@
                         echo "</div>";
                     echo "</td>";    
                     // echo "<td><input type=\"number\" value=\"$quantity\"></td>";
-                    echo "<td><a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id \" class=\" \"> + $quantity - </a></td>";
+                    echo "<td>";
+                        echo "<a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id \" class=\"plus\">";
+                        echo "+</a>";
+                        echo $quantity; 
+                        echo "<a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id&isdec=1 \" class=\"plus\">";
+                        echo "--</a>";
+                    echo "</td>";
                     // substr(string_name, start_pos, length_to_cut) 
                     // $q = ltrim($str, '$');
                     $p = ltrim($pdt_price, '$');

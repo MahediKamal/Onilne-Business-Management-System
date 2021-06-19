@@ -44,7 +44,9 @@
         oci_bind_by_name($stm, ':o_id', $order_id, -1);
     }
     else{// add to quantity
-        $quantity++;
+        if(isset($_GET['isdec'])){
+            $quantity--;
+        }else $quantity++;
         $query = 'UPDATE has_product_in_cart
         SET quantity = :qnt
         WHERE pdt_id = :id AND cart_id = :cc_id';

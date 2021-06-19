@@ -114,7 +114,21 @@
             color: teal;
             border: 1px solid teal;
         }
-
+        /* //// */
+        .plus{
+            font-family:"Roboto",sans-serif;
+            font-size:16px;
+            font-weight:bold;
+            background:teal;
+            width:100px;
+            padding:10px;
+            text-align:center;
+            text-decoration:none;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
        
     </style>
 
