@@ -114,7 +114,21 @@
             color: teal;
             border: 1px solid teal;
         }
-
+        /* //// */
+        .plus{
+            font-family:"Roboto",sans-serif;
+            font-size:16px;
+            font-weight:bold;
+            background:teal;
+            width:100px;
+            padding:10px;
+            text-align:center;
+            text-decoration:none;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
        
     </style>
 
@@ -128,23 +142,7 @@
     <?php
         create_details_cart_av($con, $cart_id);
     ?>
-        
-<div class="total-price">
-    <table>
-        <tr>
-            <td>Subtotal</td>
-            <td>$110.00</td>
-        </tr>
-        <tr>
-            <td>Shipping Charge</td>
-            <td>$50.00</td>
-        </tr>
-        <tr>
-            <td>Total</td>
-            <td>$160.00</td>
-        </tr>
-    </table>
-</div>
+
 
 
     <div class="item">
