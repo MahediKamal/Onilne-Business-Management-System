@@ -18,9 +18,6 @@ SELECT * FROM supplier_info;
 
 
 
-INSERT INTO product VALUES (pdt_id_sequence.nextval, 'shoe', 2, 'desc', 20, 'm2.jpg', '$100.00', '2 kg',  30, '5%', 1, 1);
-
-SELECT * FROM product;
 
 ///////////////////////////////////////
 
@@ -152,10 +149,11 @@ create table has_product_in_cart
 (
 cart_id NUMBER(38),foreign key(cart_id) references cart(cart_id),
 pdt_id NUMBER(38),foreign key(pdt_id) references product(pdt_id),
-order_id NUMBER(38),foreign key(order_id) references order_info(order_id)
+order_id NUMBER(38),foreign key(order_id) references order_info(order_id),
+quantity NUMBER(38) NOT NULL
 );
 
-INSERT INTO has_product_in_cart VALUES (1, 1, 21);
+INSERT INTO has_product_in_cart VALUES (1, 1, 1, 1);
 
 
 

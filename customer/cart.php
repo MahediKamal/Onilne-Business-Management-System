@@ -128,23 +128,7 @@
     <?php
         create_details_cart_av($con, $cart_id);
     ?>
-        
-<div class="total-price">
-    <table>
-        <tr>
-            <td>Subtotal</td>
-            <td>$110.00</td>
-        </tr>
-        <tr>
-            <td>Shipping Charge</td>
-            <td>$50.00</td>
-        </tr>
-        <tr>
-            <td>Total</td>
-            <td>$160.00</td>
-        </tr>
-    </table>
-</div>
+
 
 
     <div class="item">
