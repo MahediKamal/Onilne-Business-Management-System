@@ -426,5 +426,32 @@
             }
     }
 
+    function count_total_product($con, $cart_id){
+        $query = "SELECT SUM(QUANTITY) FROM has_product_in_cart WHERE cart_id = $cart_id";
+        // echo $query;
+        $s = oci_parse($con, $query);
+
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($s);
+        $pdt_nm = 0;
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {           
+            foreach ($row as $item) {
+                $pdt_nm = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+            }
+
+
+            return $pdt_nm;
+        }
+    }
+
 
 ?>
