@@ -93,7 +93,7 @@
    <li><a href="customer_details_table.php">Customers</a></li>
    <li><a href="product_table.php">Products</a></li>
    <li><a href="supplier_table.php">Suppliers</a></li>
-   <li><a href="order_table.php">Oders</a></li>
+   <li><a href="order_table.php">Orders</a></li>
    <?php echo "<li class=\"dropdown\">";
         echo "<i class=\"fa fa-user-circle-o fa-lg\ \" aria-hidden=\"true\" style=\"color:#00cc6a\">";
         echo"<span class=\"badge badge-warning\" style=\"color:#00cc6a\">$admin_name</span>";

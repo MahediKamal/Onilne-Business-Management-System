@@ -64,32 +64,32 @@
                         // echo "</div>";
                         echo "<div class=\"form-row\">";
                         echo "<div class=\"col-lg-7\">";
-                        echo "<input type=\"text\" name=\"cst_name\" placeholder=\"Name\" class=\"form-control my-2 p-2 mx-4\">";
+                        echo "<input type=\"text\" name=\"cst_name\" placeholder=\"Name\" class=\"form-control my-2 p-2 mx-4\" required>";
                         echo "</div>";
                         echo "<div class=\"form-row\">";
                         echo "<div class=\"col-lg-7\">";
-                        echo "<input type=\"number\" name=\"cst_phone\" placeholder=\"Phone-number\" class=\"form-control my-2 p-2 mx-4\">";
+                        echo "<input type=\"text\" name=\"cst_phone\" placeholder=\"Phone-number\" maxlength=\"11\" minlength=\"11\" class=\"form-control my-2 p-2 mx-4\" required>";
                         echo "</div>";
                         echo "<div class=\"form-row\">";
                         echo "<div class=\"col-lg-7\">";
-                        echo "<input type=\"email\" name=\"cst_email\" placeholder=\"Email\" class=\"form-control my-2 p-2 mx-4\">";
+                        echo "<input type=\"email\" name=\"cst_email\" placeholder=\"Email\" class=\"form-control my-2 p-2 mx-4\" required>";
                         echo "</div>";
                         echo " <div class=\"form-row\">";
                         echo "<div class=\"col-lg-7\">";
-                        echo "<input type=\"text\" name=\"cst_city\" placeholder=\"City\" class=\"form-control my-2 p-2 mx-4\">";
+                        echo "<input type=\"text\" name=\"cst_city\" placeholder=\"City\" class=\"form-control my-2 p-2 mx-4\" required>";
                         echo "</div>";
                         echo "<div class=\"form-row\">";
                         echo " <div class=\"col-lg-7\">";
-                        echo "<input type=\"number\" name=\"cst_houseno\" placeholder=\"Holding Number\" class=\"form-control my-2 p-2 mx-4\">";
+                        echo "<input type=\"number\" name=\"cst_houseno\" placeholder=\"Holding Number\" class=\"form-control my-2 p-2 mx-4\" required>";
                         echo " </div>";
 
                         echo "<div class=\"form-row\">";
                         echo "<div class=\"col-lg-7\">";
-                        echo "<input type=\"text\" name=\"cst_street\" placeholder=\"Street Number\" class=\"form-control my-2 p-2 mx-4\">";
+                        echo "<input type=\"text\" name=\"cst_street\" placeholder=\"Street Number\" class=\"form-control my-2 p-2 mx-4\" required>";
                         echo "</div>";
                         echo "<div class=\"form-row\">";
                         echo "<div class=\"col-lg-7\">";
-                        echo "<input type=\"password\" name=\"cst_password\" placeholder=\"Password\" maxlength=\"8\" class=\"form-control my-2 p-2 mx-4\">";
+                        echo "<input type=\"password\" name=\"cst_password\" placeholder=\"Password\" maxlength=\"8\" minlength=\"8\" class=\"form-control my-2 p-2 mx-4\" required>";
                         echo "</div>";
 
 

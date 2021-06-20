@@ -2,7 +2,42 @@
     $title = "details";
     require_once 'customer_header.php';
     require_once 'navigation.php';
+    require_once '../includes/connection.php';
+    $pdt_id = $_GET['pdt_id'];
 
+    $query='select pdt_name,pdt_description,pdt_quantity,pdt_picture,pdt_price,pdt_weight,pdt_stock,pdt_discount from product where pdt_id=:id';
+   
+    
+    $s = oci_parse($con, $query);
+    oci_bind_by_name($s, ':id', $pdt_id, -1);
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($s);
+
+        // price, name, img -> pdt_name, pdt_picture, pdt_price
+        $pdt_name; $pdt_description; $pdt_quantity; $pdt_picture; $pdt_price; $pdt_weight; $pdt_stock; $pdt_discount;
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+            $i = 1;            
+            foreach ($row as $item) {
+                if($i == 1) $pdt_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 2) $pdt_description = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 3) $pdt_quantity = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 4) $pdt_picture = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 5) $pdt_price = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 6) $pdt_weight = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 7) $pdt_stock = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 8) $pdt_discount = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                $i++;
+            }
+          }
 ?>
 
 <!doctype html>
@@ -21,7 +56,6 @@
 -moz-box-shadow: 12px 14px 22px 2px rgba(0,0,0,0.75);
 box-shadow: 12px 14px 22px 2px rgba(0,0,0,0.75);
 margin-bottom: 100px;
-
 }
 
 </style>
@@ -30,30 +64,29 @@ margin-bottom: 100px;
 <body>
 
 <div class="container mt-5">
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-md-12"> HOME &GT SHOP &GT WOMEN &GT WOMEN DRESS </div>
-  </div>
+  </div> -->
 </div>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active"> <img class="d-block w-100" src="https://img10.joybuy.com/N0/s560x560_jfs/t1/93557/17/6220/177017/5df1f766Eb7eb7be1/00701a965586f70a.jpg.dpg" alt="First slide"> </div>
-          <div class="carousel-item"> <img class="d-block w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIhiQNE0YD1l_hnozh3qy_7drXBfdTfPtXPy1lEpHohcOFV3ixxWQGQ_El5-xbaM9nMyo&usqp=CAU" alt="Second slide"> </div>
+        <?php echo"<div class=\"carousel-item active\"> <img class=\"d-block w-100\" src=\"../images/$pdt_picture\" alt=\"First slide\"> </div>"; 
+        echo"<div class=\"carousel-item\"> <img class=\"d-block w-100\" src=\"../images/$pdt_picture\" alt=\"Second slide\"> </div>";
+        ?>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
     </div>
     <div class="col-md-6">
       <div class="row">
-        <h2>Maroon Tops</h2>
+      <?php echo"<h2>$pdt_name</h2>"; ?>
+      
       </div>
       <div class="row">
-        <h1><i class="fa fa-inr" aria-hidden="true"></i> 299</h1>
+      <?php echo"<h1><i class=\"fa fa-inr\" aria-hidden=\"true\"></i>$pdt_price</h1>"; ?>
         &nbsp; &nbsp;
-        <h3><del>599</del></h3>
-        &nbsp; &nbsp;
-        <h2 class="text-success">30% off</h2>
       </div>
       <div class="row">
         <h3 class="text-warning"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-half-o" aria-hidden="true"></i><i class="fa fa-star-o" aria-hidden="true"></i></h3>
@@ -61,35 +94,33 @@ margin-bottom: 100px;
         <h5>1200 star rating  and 250 reviews</h5>
       </div>
       <div class="row">
-        <p><i class="text-success fa fa-check-square-o" aria-hidden="true"></i> <strong>Availablity:</strong>IN STOCK! </p><br>
-        <p><i class="text-success fa fa-check-square-o" aria-hidden="true"></i> <strong>Quantity:</strong>10 In stock </p><br>
-        <p><i class="text-success fa fa-check-square-o" aria-hidden="true"></i> <strong>Weight:</strong>10gm</p>
-        <!-- <p><i class="text-success fa fa-check-square-o" aria-hidden="true"></i> <strong>Bank Offer</strong>20% Instant Discount on pay with <i class="fa fa-google-wallet" aria-hidden="true"></i> google wallet </p> -->
+      <?php
+      if($pdt_stock>0)
+      {
+        echo"<p><i class=\"text-success fa fa-check-square-o\" aria-hidden=\"true\"></i> <strong>Availablity:</strong>In Stock!</p>";
+      }
+      else{
+        echo"<p><i class=\"text-success fa fa-check-square-o\" aria-hidden=\"true\"></i> <strong>Availablity:</strong>Out of stock!</p>";
+      }
+         echo"&nbsp; &nbsp;";
+           echo"<p><i class=\"text-success fa fa-check-square-o\" aria-hidden=\"true\"></i> <strong>Quantity:</strong>$pdt_quantity </p>"; 
+           echo"&nbsp; &nbsp;";
+           echo" <p><i class=\"text-success fa fa-check-square-o\" aria-hidden=\"true\"></i> <strong>Weight:</strong>$pdt_weight gm </p>"; ?>
       </div>
       <div class="row mt-4">
-        <h3 class="text-info"><i class="fa fa-map-marker" aria-hidden="true"></i></h3>
-        <p style="font-size: 20px"> &nbsp; Delivery by23 Jul, Tuesday | &nbsp; <span class="text-success">FREE</span> </p>
+      <h4>Product Details: &nbsp; &nbsp;</h4>
       </div>
-      <div class="row mt-4">
-        <h4>Size: &nbsp; &nbsp;</h4>
-        <div class="dropdown show"> <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Select size</a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink"> <a class="dropdown-item" href="#">Small</a> <a class="dropdown-item" href="#">Medium </a> <a class="dropdown-item" href="#">Large</a> </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-      	<h4>Colors: &nbsp; &nbsp; </h4>
-      	
-      	<a class="btn btn-primary text-light">Sky Blue</a> &nbsp; <a class="btn btn-danger text-light"> red</a>&nbsp; <a class="btn btn-info text-light"> blue </a> &nbsp; <a class="btn btn-warning text-light"> yellow</a> &nbsp; <a class="btn btn-success text-light"> green</a>
-      </div>
-      
-      <div class="row mt-4">
-      	<h4>Seller: &nbsp; &nbsp;</h4>
-      	<p style="font-size: 18px">G.M Garments </p>
-      </div>
+      <div><p style="font-size: 16px">If you’ve been thinking of treating yourself to a new summer wardrobe, you don’t want to pass on this beautiful summer floral dress. There’s no better way to express to yourself than with a new outfit that will stand out and turn heads.
+<ul>
+<li ><i class="text-success fa fa-check-square-o" aria-hidden="true"></i>100% Original Products</li>
+<li ><i class="text-success fa fa-check-square-o" aria-hidden="true"></i>Easy 30 days returns and exchanges</li>
+<li ><i class="text-success fa fa-check-square-o" aria-hidden="true"></i>This product is already at its best price</li>
+<li ><i class="text-success fa fa-check-square-o" aria-hidden="true"></i>Pay on delivery is available</li>
+</ul>
+    </p></div>
 
-       <a class="btn btn-danger text-light"><i class="fa fa-cart-plus" aria-hidden="true"></i>  Add To Cart</a> <br/><br/>
-      
-      
+    <?php echo"<a class=\"btn btn-danger text-light\" href=\"../includes/add_to_cart.php?pdt_id=$pdt_id&pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price\"><i class=\"fa fa-cart-plus\" aria-hidden=\"true\"></i> Add To Cart</a> <br/><br/>"; ?>
+    
     </div>
   </div>
 </div>
@@ -221,9 +252,3 @@ margin-bottom: 100px;
 </body>
 </html>
 
-
-<?php
-
-    require_once 'footer.php';
-
-?>

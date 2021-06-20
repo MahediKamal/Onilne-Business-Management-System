@@ -300,7 +300,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url(./images/Slider_03.jpg);
+        background-image: url(../images/Slider_03.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
