@@ -11,7 +11,7 @@
     $pdt_price = $_GET['pdt_price'];
 
     // product id, cart id -> in session , order id -> in session 
-    echo $cart_id . ' ' . $pdt_id . ' ' . $order_id;
+    // echo $cart_id . ' ' . $pdt_id . ' ' . $order_id;
 
     // ------------------check if product already in cart
     $query = 'SELECT quantity FROM has_product_in_cart WHERE pdt_id = :pp_id';
@@ -62,7 +62,7 @@
     // if(new product)
     // $query = 'INSERT INTO has_product_in_cart VALUES (:c_id, :p_id, :o_id, 1)';
 
-    echo $query;
+    // echo $query;
 
     if (!$stm) {
         $m = oci_error($con);
