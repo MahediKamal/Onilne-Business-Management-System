@@ -1,7 +1,9 @@
 <?php
     require_once '../includes/connection.php';
     require_once '../includes/function.php';
-    $cart_id = $_SESSION['cart_id'];
+    if (isset($_SESSION['customer_name'])){
+        $cart_id = $_SESSION['cart_id'];
+    }
 ?>
 
 <html>
@@ -488,8 +490,12 @@
          <a href="./cart.php">
              <i class="fas fa-shopping-cart">
                 <?php
-                    $pdt_nm = count_total_product($con, $cart_id);
-                    echo "<span class=\"num-cart-product\">$pdt_nm</span>";
+                    if(isset($_SESSION['customer_name']) && count_total_product($con, $cart_id)!=0){
+                        $pdt_nm = count_total_product($con, $cart_id);
+                        echo "<span class=\"num-cart-product\">$pdt_nm</span>";
+                    }else{
+                        echo "<span class=\"num-cart-product\">0</span>";
+                    }
                  ?>
              </i>
          </a>
