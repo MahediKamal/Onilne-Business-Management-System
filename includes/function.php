@@ -217,7 +217,8 @@
                     echo "</td>";
                     // substr(string_name, start_pos, length_to_cut) 
                     // $q = ltrim($str, '$');
-                    $p = ltrim($pdt_price, '$');
+                    // $p = ltrim($pdt_price, '$');
+                    $p = substr($pdt_price, 0, -1);
                     $cst = strval($p)*strval($quantity);
                     echo "<td> $$cst </td>";  
                     $total_price += $cst;     
@@ -250,6 +251,63 @@
         echo "</div>";
 
         
+    }
+
+    function create_added_product_av($con, $cart_id){
+        $query = 'SELECT hp.quantity, p.pdt_picture, p.pdt_name, p.pdt_price, p.pdt_id 
+        FROM product p 
+        INNER JOIN has_product_in_cart hp
+        ON hp.PDT_ID  =  p.PDT_ID
+        WHERE hp.cart_id = :c_id';
+
+        ///// 
+        $stm = oci_parse($con, $query);
+        oci_bind_by_name($stm, ':c_id', $cart_id, -1);
+
+
+        if (!$stm) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        // echo $stm . ' '. $query;
+
+        $r = oci_execute($stm);
+        if (!$r) {
+            $m = oci_error($stm);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($stm);
+
+        // pdt_picture, pdt_name, pdt_price
+       
+        $total_price = 0;
+        echo "<div class=\"container\">";
+        echo "<h4>Cart <span class=\"price\" style=\"color:black\"><i class=\"fa fa-shopping-cart\"></i> <b>_</b></span></h4>";
+        while (($row = oci_fetch_array($stm, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+            $pdt_name; $pdt_picture; $pdt_price = 0; $quantity; $pdt_id;
+            $i = 1;            
+            foreach ($row as $item) {
+                if($i == 1) $quantity = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 2) $pdt_picture = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 3) $pdt_name = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 4) $pdt_price = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                if($i == 5) $pdt_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                $i++;
+            }
+            // $pdt_id = 1;
+            // ----------showing added product----------------
+            // $p = ltrim($pdt_price, '$');
+            $p = substr($pdt_price, 0, -1);
+            $cst = strval($p)*strval($quantity); 
+            echo "<p><a href=\"#\">$pdt_name ($quantity)</a> <span class=\"price\">$cst</span></p>";
+            $total_price += $cst;   
+            
+            
+        }
+            echo "<hr>";
+            echo "<p>Total <span class=\"price\" style=\"color:black\"><b>$total_price</b></span></p>";
+        echo "</div>";
     }
 
 

@@ -225,22 +225,9 @@
                     $billing_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
                 }
             }
-            // ------------------getting next customer_id
-            $sql = 'SELECT MAX(cst_id) FROM customer';
-            $stmt = oci_parse($con, $sql);
-            $rc = oci_execute($stmt);
-            if(!$rc){
-                $e = oci_error($stmt);
-                var_dump($e);
-            }
-            $cst_id = 0;
-            while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
-                foreach ($row as $item) {
-                    $cst_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
-                }
-            }
+            
             ///------------------------------end-------------------
-            $cart_id++; $order_id++; $courier_id++; $billing_id++; $cst_id++;
+            $cart_id++; $order_id++; $courier_id++; $billing_id++;
 
             // $sql = 'INSERT INTO customer (cst_id, cst_name, cst_phone, cst_email, cst_city, cst_houseno, cst_street, cst_password )'.
             // 'VALUES (:id,:nme, :phn, :eml, :cty, :hus, :str,:pss)';
@@ -258,6 +245,21 @@
             if(!$rc){
                 $e = oci_error($stmt);
                 var_dump($e);
+            }
+            //////////
+            // ------------------getting next customer_id
+            $sql = 'SELECT MAX(cst_id) FROM customer';
+            $stmt = oci_parse($con, $sql);
+            $rc = oci_execute($stmt);
+            if(!$rc){
+                $e = oci_error($stmt);
+                var_dump($e);
+            }
+            $cst_id = 0;
+            while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+                foreach ($row as $item) {
+                    $cst_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+                }
             }
 
             // --------------insert in login table
