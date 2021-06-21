@@ -113,6 +113,23 @@
         opacity: 1;
         pointer-events:auto;
     }
+    .pop2{
+        position: absolute;
+        top: 43px;
+        background: #0b9d8a;
+        color:white;
+        font-size:16px;
+        margin-left:36px;
+        padding:5px 10px;
+        border-radius:10px;
+        box-shadow:0 10px 10px rgba(0,0,0,0.1);
+        opacity:0;
+        pointer-events:none; 
+    }
+    .user2:hover .pop{
+        opacity: 1;
+        pointer-events:auto;
+    }
     .menu a:hover,
     .right-menu a:hover,
     .search-cancel:hover,
@@ -504,6 +521,13 @@
                     }
                  ?>
              </i>
+         </a>
+         <a href="./my_order.php" class="user2">
+            <?php
+                $state = "My orders";
+                echo "<div class=\"pop2\">$state</div>";
+            ?>
+            <i class="fa fa-address-book-o" aria-hidden="true"></i>
          </a>
      </div>
      </div>

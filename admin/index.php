@@ -9,7 +9,8 @@
    
    <style>
  body{
-     background: black;
+     /* background: black; */
+     background: #1597BB;
  }
  .container{
      margin-top:110px !important;
@@ -81,4 +82,27 @@
 
 
 
-<?php require_once '../includes/footer.php'; ?>
+<?php 
+    $action = 2;
+    $table = "billing_info"; 
+    $query = 'SELECT * FROM billing_info';
+    CreateTable_av($query, $con, $action, $table);
+
+    $table = "cart"; 
+    $query = 'SELECT * FROM cart';
+    CreateTable_av($query, $con, $action, $table);
+
+    $table = "has_product_in_cart"; 
+    $query = 'SELECT * FROM has_product_in_cart';
+    CreateTable_av($query, $con, $action, $table);
+
+    $table = "order_info"; 
+    $query = 'SELECT * FROM order_info';
+    CreateTable_av($query, $con, $action, $table);
+
+    $table = "courier"; 
+    $query = 'SELECT * FROM courier';
+    CreateTable_av($query, $con, $action, $table);
+
+    require_once '../includes/footer.php'; 
+?>

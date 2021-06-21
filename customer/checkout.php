@@ -183,27 +183,27 @@
 
                     <div class="col-50">
                         <h3>Payment</h3>
-
-                        <label for="fname">Payment Methods</label>
+                        
+                        <label for="fname">Payment Method</label>
                         <!-- <div class="icon-container">
                             <i class="fa fa-cc-visa" style="color:navy;"></i>
                             <i class="fa fa-cc-amex" style="color:blue;"></i>
                             <i class="fa fa-cc-mastercard" style="color:red;"></i>
                             <i class="fa fa-cc-discover" style="color:orange;"></i>
                         </div> -->
-                        <select id="cars" name="payment_type">
+                        <select id="cars" name="payment_type" class="valid" aria-invalid="false" style="font-size: 20px;padding-left: 180px;padding-right: 100px;padding-top: 6px;padding-bottom: 6px;">
                             <option value="Bkash">Bkash</option>
                             <option value="Nagad">Nagad</option>
                             <option value="Cash on delivery">Cash on delivery</option>
                             <!-- <option value="audi">Audi TT</option> -->
                         </select>
-                        <label for="fname">delivary</label>
-                        <select id="cars" name="delivary">
-                            <option value="pathao">pathao</option>
-                            <option value="Shundorbon courier">Shundorbon courier</option>
+                        <label for="fname"  style="padding-top: 22px;">delivery</label>
+                        <select id="cars" name="delivary"  class="valid" aria-invalid="false" style="font-size: 21px;padding-left: 180px;padding-right: 63px;padding-top: 5px;padding-bottom: 6px;">
+                            <option value="pathao" class="tik">Pathao</option>
+                            <option value="Shundorbon courier" class="tok">Shundorbon courier</option>
                             <!-- <option value="audi">Audi TT</option> -->
                         </select>
-                        <label for="ccnum">Bkash/Nagad number</label>
+                        <label for="ccnum" style="padding-top: 20px;">Bkash/Nagad number</label>
                         <input type="text" id="ccnum" name="ac_num" placeholder="01837-633353"required>
                       
                       
