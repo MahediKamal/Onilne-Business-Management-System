@@ -204,7 +204,7 @@
                             <!-- <option value="audi">Audi TT</option> -->
                         </select>
                         <label for="ccnum" style="padding-top: 20px;">Bkash/Nagad number</label>
-                        <input type="text" id="ccnum" name="ac_num" placeholder="01837-633353"required>
+                        <input type="text" id="ccnum" name="ac_num" minlength="11" maxlength="11" placeholder="01837-633353"required>
                       
                       
                         <div class="row">
