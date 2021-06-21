@@ -296,6 +296,7 @@
             $_SESSION['orde_id'] = $order_id;
             $_SESSION['billing_id'] = $billing_id;
             $_SESSION['courier_id'] = $courier_id;
+            $_SESSION['total'] = 0;
 
             //--------------- dummy insert for signup
             insert_dummy_row_into_billing_info_av($billing_id, $con);

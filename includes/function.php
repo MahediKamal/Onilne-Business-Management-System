@@ -130,7 +130,7 @@
                 echo "</div>";
                 // <!--product-details-------->
                 echo "<div class=\"product-details\">";
-                    echo "<a href=\"#\" class=\"p-name\"> $pdt_name </a>";
+                    echo "<a href=\"../customer/detail.php?pdt_id=$pdt_id\" class=\"p-name\"> $pdt_name </a>";
                     echo "<span class=\"p-price\">$pdt_price</span>";
                 echo "</div>";
             echo "</div>";
@@ -209,11 +209,11 @@
                     echo "</td>";    
                     // echo "<td><input type=\"number\" value=\"$quantity\"></td>";
                     echo "<td>";
-                        echo "<a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id \" class=\"plus\">";
-                        echo "+</a>";
-                        echo $quantity; 
                         echo "<a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id&isdec=1 \" class=\"plus\">";
                         echo "--</a>";
+                        echo $quantity; 
+                        echo "<a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id\" class=\"plus\">";
+                        echo "+</a>";
                     echo "</td>";
                     // substr(string_name, start_pos, length_to_cut) 
                     // $q = ltrim($str, '$');
@@ -249,6 +249,7 @@
             echo "</tr>";
         echo "</table>";
         echo "</div>";
+        $_SESSION['total'] = $tot;
 
         
     }
@@ -501,5 +502,194 @@
         }
     }
 
+    function find_cartID_according_to_orderID_from_HasProductInCart($order_id, $con){
+        $query = "SELECT cart_id FROM has_product_in_cart WHERE order_id = $order_id";
+        // echo $query;
+        $s = oci_parse($con, $query);
 
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($s);
+        $cart_id = 0;
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {           
+            foreach ($row as $item) {
+                $cart_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+            }
+
+
+            return $cart_id;
+        }
+    }
+
+    function find_courierID_according_to_orderID_from_orerInfo($order_id, $con){
+        $query = "SELECT courier_id FROM order_info WHERE order_id = $order_id";
+        // echo $query;
+        $s = oci_parse($con, $query);
+
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($s);
+        $courier_id = 0;
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {           
+            foreach ($row as $item) {
+                $courier_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+            }
+
+
+            return $courier_id;
+        }
+    }
+
+    function find_billingId_according_to_cartID_from_cart($cart_id, $con){
+        $query = "SELECT billing_id FROM cart WHERE cart_id = $cart_id";
+        // echo $query;
+        $s = oci_parse($con, $query);
+
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($s);
+        $billing_id = 0;
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {           
+            foreach ($row as $item) {
+                $billing_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+            }
+
+
+            return $billing_id;
+        }
+    }
+
+    function CreateTable_for_customer_order_av($query, $con, $action, $table){
+        $s = oci_parse($con, $query);
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+        // creating table
+        echo "<table class=\"table table-hover table-bordered\">";
+        $ncols = oci_num_fields($s);
+        echo "<thead>";
+        echo "<tr>\n";
+
+        $pk_field;
+        for ($i = 1; $i <= $ncols; ++$i) {
+            $colname = oci_field_name($s, $i);
+            if($i == 1) $pk_field = htmlspecialchars($colname,ENT_QUOTES|ENT_SUBSTITUTE);
+            echo "  <th scope=\"col\">".htmlspecialchars($colname,ENT_QUOTES|ENT_SUBSTITUTE)."</th>\n";
+        }
+
+        if($action == 1){ // checking if we need Action column or not
+            echo "<th scope=\"col\">Action</tr>";
+        }
+        
+        echo "</tr>\n";
+        echo "</thead>";
+        echo "<tbody>";
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+            echo "<tr>\n";
+            $fst; $cnt = 0;
+            foreach ($row as $item) {
+                if($cnt == 0) $fst = $item!==null?htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE):"&nbsp;";
+                $cnt++;
+                echo "<td>";
+                echo $item!==null?htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE):"&nbsp;";
+                echo "</td>\n";
+            }
+            if($action == 1){ // adding button in action column
+                echo "<td>";
+                // echo " <a href='../includes/edit.php?pk_nme=$pk_field&pk_val=$fst&tbl=$table' type=\"button\" class=\"btn btn-outline-success btn-sm\">Edit</a> ";
+                echo " <a href='../includes/delete.php?pk_nme=$pk_field&pk_val=$fst&tbl=$table' type=\"button\" class=\"btn btn-outline-danger btn-sm\">Cancel Order</a> ";
+
+                echo "</td>\n";
+            }
+            echo "</tr>\n";
+        }
+
+        echo "</tbody>";
+        echo "</table>";
+    }
+
+    function CreateTable_for_admin_to_watch_order_av($query, $con, $action, $table){
+        $s = oci_parse($con, $query);
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+        // creating table
+        echo "<table class=\"table table-hover table-bordered\">";
+        $ncols = oci_num_fields($s);
+        echo "<thead>";
+        echo "<tr>\n";
+
+        $pk_field;
+        for ($i = 1; $i <= $ncols; ++$i) {
+            $colname = oci_field_name($s, $i);
+            if($i == 1) $pk_field = htmlspecialchars($colname,ENT_QUOTES|ENT_SUBSTITUTE);
+            echo "  <th scope=\"col\">".htmlspecialchars($colname,ENT_QUOTES|ENT_SUBSTITUTE)."</th>\n";
+        }
+
+        if($action == 1){ // checking if we need Action column or not
+            echo "<th scope=\"col\">Update</tr>";
+        }
+        
+        echo "</tr>\n";
+        echo "</thead>";
+        echo "<tbody>";
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+            echo "<tr>\n";
+            $fst; $cnt = 0;
+            foreach ($row as $item) {
+                if($cnt == 0) $fst = $item!==null?htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE):"&nbsp;";
+                $cnt++;
+                echo "<td>";
+                echo $item!==null?htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE):"&nbsp;";
+                echo "</td>\n";
+            }
+            if($action == 1){ // adding button in action column
+                echo "<td>";
+                echo " <a href='../includes/edit.php?pk_nme=$pk_field&pk_val=$fst&tbl=$table' type=\"button\" class=\"btn btn-outline-success btn-sm\">Mark As Paid</a> ";
+                echo " <a href='../includes/edit.php?pk_nme=$pk_field&pk_val=$fst&tbl=$table&date=1' type=\"button\" class=\"btn btn-outline-success btn-sm\">Mark As Delivered</a> ";
+
+                echo "</td>\n";
+            }
+            echo "</tr>\n";
+        }
+
+        echo "</tbody>";
+        echo "</table>";
+    }
 ?>

@@ -11,10 +11,14 @@
     
     
     // $query = "select * from customer";
-    $query = "SELECT * FROM order_info";
+
+    // order_id, order_date, estimated_date, delivery_date , payment_status, cst_id, courier_id
+    $query = "SELECT order_id, order_date, estimated_date, delivery_date , payment_status, cst_id, courier_id FROM order_info
+    ORDER BY payment_status, order_id  DESC";
+
     $action = 1; // action 1, means we want add & delete button in the table
     $table = "order_info";
-    CreateTable_av($query, $con, $action, $table);
+    CreateTable_for_admin_to_watch_order_av($query, $con, $action, $table);
 
 ?>
 
