@@ -20,7 +20,7 @@
     echo "<br> <br> <h2> Orders in process :</h2> <br>"; 
     $query = "SELECT order_id, ORDER_DATE, ORDER_CANCEL
     FROM order_info where cst_id = $cst_id AND payment_status ='due'
-    ORDER BY order_id";
+    ORDER BY order_id DESC";
     $action = 1;
     CreateTable_for_customer_order_av($query, $con, $action, $table);
 
@@ -35,7 +35,7 @@
     -- INNER JOIN cart ON has_product_in_cart.cart_id = cart.cart_id
     INNER JOIN product ON product.pdt_id = has_product_in_cart.pdt_id
     WHERE order_info.cst_id = $cst_id AND payment_status ='due'
-    ORDER BY order_info.order_id";
+    ORDER BY order_info.order_id DESC";
 
     // echo $query;
 
@@ -51,7 +51,7 @@
     echo "<br> <br> <h2>Order history :</h2> <br>"; 
     $query = "SELECT order_id, ORDER_DATE, PAYMENT_STATUS
     FROM order_info where cst_id = $cst_id AND payment_status ='paid'
-    ORDER BY order_id";
+    ORDER BY order_id DESC";
     $action = 0;
     CreateTable_for_customer_order_av($query, $con, $action, $table);
 
