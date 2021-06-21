@@ -122,6 +122,35 @@
             condition;
         */
     }
+    else if($pk_field == "ORDER_ID"){
+        // order_date=
+        if(isset($_GET['date'])){
+            $query = "UPDATE order_info 
+            SET delivery_date = sysdate
+            WHERE order_id = $pk_val";
+            echo "order update";
+        }else{
+            $query = "UPDATE order_info 
+            SET payment_status = 'paid'
+            WHERE order_id = $pk_val";
+        }
+        // echo "order update";
+       
+
+        $s = oci_parse($con, $query);
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+        oci_commit($con);
+        oci_free_statement($s);
+        oci_close($con);
+    }
 
     echo " edited from $table where PK is $pk_field and PK value is $pk_val";
 
