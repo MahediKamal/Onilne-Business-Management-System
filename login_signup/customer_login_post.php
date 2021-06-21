@@ -91,6 +91,16 @@
         if($res_nm == 3){ // -------------------- valid input
             // echo $res_nm . "valid user";
             ///------------------------------start----------------
+            // -- trigger action when insert into courier
+            $sql = "INSERT INTO courier VALUES (courier_id_sequence.nextval, '__')";
+            $stmt = oci_parse($con, $sql);
+            $rc = oci_execute($stmt);
+            if(!$rc){
+                $e = oci_error($stmt);
+                var_dump($e);
+            }
+
+
             // ------------------getting next cart_id
             $sql = 'SELECT MAX(cart_id) FROM cart';
             $stmt = oci_parse($con, $sql);
@@ -148,7 +158,7 @@
                 }
             }
             // ------------------getting next customer_id
-            $sql = 'SELECT MAX(cst_id) FROM customer';
+            $sql = "SELECT cst_id FROM customer WHERE cst_email='$cst_email'";
             $stmt = oci_parse($con, $sql);
             $rc = oci_execute($stmt);
             if(!$rc){
@@ -162,7 +172,7 @@
                 }
             }
             ///------------------------------end-------------------
-            $cart_id++; $order_id++; $courier_id++; $billing_id++;
+            // $cart_id++; $order_id++; $courier_id++; $billing_id++;
             
 
             /// initializing sesson and session variable
@@ -179,11 +189,11 @@
 
             // echo $order_id. ' ' .$cart_id . ' ' . $billing_id. ' '. $courier_id;
             // had to initialize billing_info table (as order id is foreign key of cart)
-            insert_dummy_row_into_billing_info_av($billing_id, $con);
+            // --------insert_dummy_row_into_billing_info_av($billing_id, $con);
             // // cart_id,pdt_id,order_id
-            insert_dummy_row_into_cart_av($cart_id, $con);
-            insert_dummy_row_into_courier_av($courier_id, $con);
-            insert_dummy_row_into_order_info_av($order_id,$con);
+            // ---------insert_dummy_row_into_cart_av($cart_id, $con);
+            // --------insert_dummy_row_into_courier_av($courier_id, $con);
+            // ----------insert_dummy_row_into_order_info_av($order_id,$con);
 
 
             oci_commit($con);
