@@ -118,15 +118,15 @@
         top: 43px;
         background: #0b9d8a;
         color:white;
-        font-size:16px;
-        margin-left:36px;
+        font-size:17px;
+        margin-left:5px;
         padding:5px 10px;
         border-radius:10px;
         box-shadow:0 10px 10px rgba(0,0,0,0.1);
         opacity:0;
         pointer-events:none; 
     }
-    .user2:hover .pop{
+    .user2:hover .pop2{
         opacity: 1;
         pointer-events:auto;
     }
@@ -522,12 +522,13 @@
                  ?>
              </i>
          </a>
+
+
+
          <a href="./my_order.php" class="user2">
-            <?php
-                $state = "My orders";
-                echo "<div class=\"pop2\">$state</div>";
-            ?>
-            <i class="fa fa-address-book-o" aria-hidden="true"></i>
+            
+                <i class="fa fa-address-book-o" aria-hidden="true"><div class="pop2">My Orders</div></i>
+            
          </a>
      </div>
      </div>
