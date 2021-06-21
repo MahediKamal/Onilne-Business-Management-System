@@ -150,8 +150,13 @@
         oci_commit($con);
         oci_free_statement($s);
         oci_close($con);
+
+        echo "<head>";
+            echo "<title>done</title>";
+            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../admin/order_table.php\" />";
+        echo "</head>";
     }
 
-    echo " edited from $table where PK is $pk_field and PK value is $pk_val";
+    // echo " edited from $table where PK is $pk_field and PK value is $pk_val";
 
 ?>
