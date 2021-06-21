@@ -8,7 +8,11 @@
     require_once '../includes/function.php';
     require_once '../admin/navigation.php';
 
-    
+    if(!isset($_SESSION['adminName'])){
+        echo "<head>";
+            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
+        echo "</head>";
+    }
     
     $query = "select * from product";
     // PDT_ID	PDT_NAME	UNIT_ORDER	PDT_DESCRIPTION	PDT_QUANTITY	PDT_PICTURE	PDT_PRICE	PDT_WEIGHT	PDT_STOCK	PDT_DISCOUNT

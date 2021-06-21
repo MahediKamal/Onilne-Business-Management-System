@@ -595,7 +595,7 @@
             trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
         }
         // creating table
-        echo "<table class=\"table table-hover table-bordered\">";
+        echo "<table class=\"content-table\">";
         $ncols = oci_num_fields($s);
         echo "<thead>";
         echo "<tr>\n";

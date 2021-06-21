@@ -152,8 +152,10 @@
             $e = oci_error($stmt);
             var_dump($e);
         }
-        echo $total;
+        // echo $total;
+        
 
+        // ..........................................
 
         // echo "<head>";
         //     echo "<title>done</title>";
@@ -173,7 +175,7 @@
     <?php
      echo "<h3>ORDER ID: $order_id</h3>";
     ?>
-  <div class="items">
+  <div class="items" style="height:80px;">
       <p>Items Purchased:
        <?php Show_added_product_normally_av($con, $cart_id); ?>
       </p>
@@ -195,7 +197,7 @@
     </div>
 
     <div class="item">
-            <a href="../customer/index.php"> <button class="btn">Continue Shopping</button></a>
+            <a href="./reset.php"> <button class="btn">Continue Shopping</button></a>
                
     </div>
 

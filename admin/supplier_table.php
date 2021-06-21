@@ -9,6 +9,12 @@
     require_once '../includes/function.php';
     require_once '../admin/navigation.php';
 
+    if(!isset($_SESSION['adminName'])){
+        echo "<head>";
+            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
+        echo "</head>";
+    }
+
     $query = "select * from supplier_info";
     $action = 1; // action 1, means we want add & delete button in the table
     $table = "supplier_info";

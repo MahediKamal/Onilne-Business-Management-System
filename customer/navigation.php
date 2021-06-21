@@ -118,15 +118,15 @@
         top: 43px;
         background: #0b9d8a;
         color:white;
-        font-size:16px;
-        margin-left:36px;
+        font-size:17px;
+        margin-left:5px;
         padding:5px 10px;
         border-radius:10px;
         box-shadow:0 10px 10px rgba(0,0,0,0.1);
         opacity:0;
         pointer-events:none; 
     }
-    .user2:hover .pop{
+    .user2:hover .pop2{
         opacity: 1;
         pointer-events:auto;
     }
@@ -214,10 +214,16 @@
         margin: 20px;
         padding: 0px 20px;
     }
+    .search-submit{
+        color: #272727;
+        font-size: 2rem;
+        
+    }
     .search-cancel{
         color: #272727;
         font-size: 2rem;
         padding-right: 40px;
+
     }
     .search-bar{
         display: none;
@@ -516,12 +522,13 @@
                  ?>
              </i>
          </a>
+
+
+
          <a href="./my_order.php" class="user2">
-            <?php
-                $state = "My orders";
-                echo "<div class=\"pop2\">$state</div>";
-            ?>
-            <i class="fa fa-address-book-o" aria-hidden="true"></i>
+            
+                <i class="fa fa-address-book-o" aria-hidden="true"><div class="pop2">My Orders</div></i>
+            
          </a>
      </div>
      </div>
@@ -529,14 +536,34 @@
 
  <!--search-bar----------------------------------->
  <div class="search-bar">
-    
     <!--search-input------->
     <div class="search-input">
     <input type="text" placeholder="Search For Product" name="search" />
-    <!--cancel-btn--->
-    <a href="javascript:void(0);" class="search-cancel">
+    <!--search-btn--->
+    <a href="" class="search-submit" >
+        <i class="fas fa-search"> <input type="text" name="submit"/></i>
+    </a>
+       <!--cancel-btn--->
+    <a href="" class="search-cancel">
         <i class="fas fa-times"></i>
     </a>
+    
+    <?php
+
+if (isset($_POST["submit"])) {
+
+    echo"submitted hfghgfads hsdahgfigba agfdihgfasgfjgsfjg gdksjakgdjgvjdsbfaj";
+	// $str = $_POST["search"];
+	// $sth = $con->prepare("SELECT * FROM `search` WHERE Name = '$str'");
+
+	// $sth->setFetchMode(PDO:: FETCH_OBJ);
+	// $sth -> execute();
+
+	// if($row = $sth->fetch())
+	// {
+    }
+		?>
+
 </div>
 </div>
 

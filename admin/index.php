@@ -1,9 +1,14 @@
 <?php
+    session_start();
     $title = "admin";
     require_once '../includes/header.php';
     require_once '../includes/connection.php';
     require_once '../includes/function.php';
-
+    if(!isset($_SESSION['adminName'])){
+        echo "<head>";
+            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
+        echo "</head>";
+    }
     
 ?>
    
