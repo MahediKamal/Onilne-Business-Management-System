@@ -149,7 +149,7 @@
     <?php
      echo "<h3>ORDER ID: $order_id</h3>";
     ?>
-  <div class="items">
+  <div class="items" style="height:80px;">
       <p>Items Purchased:
        <?php Show_added_product_normally_av($con, $cart_id); ?>
       </p>

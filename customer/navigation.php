@@ -197,10 +197,16 @@
         margin: 20px;
         padding: 0px 20px;
     }
+    .search-submit{
+        color: #272727;
+        font-size: 2rem;
+        
+    }
     .search-cancel{
         color: #272727;
         font-size: 2rem;
         padding-right: 40px;
+
     }
     .search-bar{
         display: none;
@@ -505,14 +511,34 @@
 
  <!--search-bar----------------------------------->
  <div class="search-bar">
-    
     <!--search-input------->
     <div class="search-input">
     <input type="text" placeholder="Search For Product" name="search" />
-    <!--cancel-btn--->
-    <a href="javascript:void(0);" class="search-cancel">
+    <!--search-btn--->
+    <a href="" class="search-submit" >
+        <i class="fas fa-search"> <input type="text" name="submit"/></i>
+    </a>
+       <!--cancel-btn--->
+    <a href="" class="search-cancel">
         <i class="fas fa-times"></i>
     </a>
+    
+    <?php
+
+if (isset($_POST["submit"])) {
+
+    echo"submitted hfghgfads hsdahgfigba agfdihgfasgfjgsfjg gdksjakgdjgvjdsbfaj";
+	// $str = $_POST["search"];
+	// $sth = $con->prepare("SELECT * FROM `search` WHERE Name = '$str'");
+
+	// $sth->setFetchMode(PDO:: FETCH_OBJ);
+	// $sth -> execute();
+
+	// if($row = $sth->fetch())
+	// {
+    }
+		?>
+
 </div>
 </div>
 
