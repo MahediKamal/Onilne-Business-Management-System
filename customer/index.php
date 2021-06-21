@@ -98,134 +98,16 @@
     </div>
       <!--products----------------------->
       <div class="product-container">
-          
-        <!--product-box-1---------->
-          <div class="product-box">
-              <!--product-img------------>
-              <div class="product-img">
-                  <!--add-cart---->
-                  <a href="#" class="add-cart">
-                      <i class="fas fa-shopping-cart"></i>
-                    </a>
-                  <!--img------>
-                <img src="../images/p-1.png">
-              </div>
-              <!--product-details-------->
-              <div class="product-details">
-                  <a href="#" class="p-name">Drawstring T-Shirt</a>
-                  <span class="p-price">$22.00</span>
-              </div>
-          </div>
-            <!--product-box-2---------->
-            <div class="product-box">
-                <!--product-img------------>
-                <div class="product-img">
-                    <!--add-cart---->
-                  <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                  <!--img------>
-                  <img src="../images/p-2.png">
-                </div>
-                <!--product-details-------->
-                <div class="product-details">
-                    <a href="#" class="p-name">Drawstring T-Shirt</a>
-                    <span class="p-price">$22.00</span>
-                </div>
-            </div>
-          <!--product-box-3---------->
-          <div class="product-box">
-            <!--product-img------------>
-            <div class="product-img">
-                <!--add-cart---->
-                <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                <!--img------>
-              <img src="../images/p-3.png">
-            </div>
-            <!--product-details-------->
-            <div class="product-details">
-                <a href="#" class="p-name">Drawstring T-Shirt</a>
-                <span class="p-price">$22.00</span>
-            </div>
-        </div>
-          <!--product-box-4---------->
-          <div class="product-box">
-            <!--product-img------------>
-            <div class="product-img">
-                <!--add-cart---->
-                <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                <!--img------>
-              <img src="../images/p-4.png">
-            </div>
-            <!--product-details-------->
-            <div class="product-details">
-                <a href="#" class="p-name">Drawstring T-Shirt</a>
-                <span class="p-price">$22.00</span>
-            </div>
-        </div>
-          <!--product-box-5---------->
-          <div class="product-box">
-            <!--product-img------------>
-            <div class="product-img">
-                <!--add-cart---->
-                <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                <!--img------>
-              <img src="../images/p-5.png">
-            </div>
-            <!--product-details-------->
-            <div class="product-details">
-                <a href="#" class="p-name">Drawstring T-Shirt</a>
-                <span class="p-price">$22.00</span>
-            </div>
-        </div>
-          <!--product-box-6---------->
-          <div class="product-box">
-            <!--product-img------------>
-            <div class="product-img">
-                <!--add-cart---->
-                <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                <!--img------>
-              <img src="../images/p-6.png">
-            </div>
-            <!--product-details-------->
-            <div class="product-details">
-                <a href="#" class="p-name">Drawstring T-Shirt</a>
-                <span class="p-price">$22.00</span>
-            </div>
-        </div>
-          <!--product-box-7---------->
-          <div class="product-box">
-            <!--product-img------------>
-            <div class="product-img">
-                <!--add-cart---->
-                <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                <!--img------>
-              <img src="../images/p-7.png">
-            </div>
-            <!--product-details-------->
-            <div class="product-details">
-                <a href="#" class="p-name">Drawstring T-Shirt</a>
-                <span class="p-price">$22.00</span>
-            </div>
-        </div>
-          <!--product-box-8---------->
-          <div class="product-box">
-            <!--product-img------------>
-            <div class="product-img">
-                <!--add-cart---->
-                <a href="#" class="add-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-                <!--img------>
-              <img src="../images/p-8.png">
-            </div>
-            <!--product-details-------->
-            <div class="product-details">
-                <a href="#" class="p-name">Drawstring T-Shirt</a>
-                <span class="p-price">$22.00</span>
-            </div>
-        </div>
-      </div>
-  </section>
+      <?php
+            $query = "SELECT *
+            FROM (select pdt_id, pdt_name, pdt_picture, pdt_price FROM product where pdt_description='Men' ORDER BY pdt_id)
+            WHERE ROWNUM <= 8";
+            $section = "men"; // folder name of images
+            createCart_av($query, $con, $section);
 
+    ?>
+    </div>
+</section>
 
   <!---sale------------------------------------>
   <section class="sale">
@@ -274,69 +156,17 @@
         </div>
       <!--products----------------------->
       <div class="product-container">
-          
-        <!--product-box-1---------->
-          <div class="product-box">
-              <!--product-img------------>
-              <div class="product-img">
-                  <!--add-cart---->
-                  <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                  <!--img------>
-                <img src="../images/p-1.png">
-              </div>
-              <!--product-details-------->
-              <div class="product-details">
-                  <a href="#" class="p-name">Drawstring T-Shirt</a>
-                  <span class="p-price">$22.00</span>
-              </div>
-          </div>
-            <!--product-box-2---------->
-            <div class="product-box">
-                <!--product-img------------>
-                <div class="product-img">
-                    <!--add-cart---->
-                  <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                  <!--img------>
-                  <img src="../images/p-2.png">
-                </div>
-                <!--product-details-------->
-                <div class="product-details">
-                    <a href="#" class="p-name">Drawstring T-Shirt</a>
-                    <span class="p-price">$22.00</span>
-                </div>
-            </div>
-          <!--product-box-3---------->
-          <div class="product-box">
-            <!--product-img------------>
-            <div class="product-img">
-                <!--add-cart---->
-                <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                <!--img------>
-              <img src="../images/p-3.png">
-            </div>
-            <!--product-details-------->
-            <div class="product-details">
-                <a href="#" class="p-name">Drawstring T-Shirt</a>
-                <span class="p-price">$22.00</span>
-            </div>
-        </div>
-         <!--product-box-4---------->
-         <div class="product-box">
-            <!--product-img------------>
-            <div class="product-img">
-                <!--add-cart---->
-                <a href="#" class="add-cart"><i class="fas fa-shopping-cart"></i></a>
-                <!--img------>
-              <img src="../images/p-4.png">
-            </div>
-            <!--product-details-------->
-            <div class="product-details">
-                <a href="#" class="p-name">Drawstring T-Shirt</a>
-                <span class="p-price">$22.00</span>
-            </div>
-        </div>
-          
-            </div>
+      <?php
+            $query = "SELECT *
+            FROM (select pdt_id, pdt_name, pdt_picture, pdt_price FROM product where pdt_description='Electronics' ORDER BY pdt_id)
+            WHERE ROWNUM <= 4";
+            $section = "electronics"; // folder name of images
+            createCart_av($query, $con, $section);
+
+
+
+    ?>
+    </div>
             </section>
 
             <!--banner-->
