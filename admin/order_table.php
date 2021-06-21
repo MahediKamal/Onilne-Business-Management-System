@@ -2,12 +2,18 @@
 <?php
     session_start();
     $title = "admin: customer:details";
-    $table_title = "All oders:";
+    $table_title = "All orders:";
     $admin_name = $_SESSION['adminName'];
     require_once '../includes/header.php';
     require_once '../includes/connection.php';
     require_once '../includes/function.php';
     require_once '../admin/navigation.php';
+
+    if(!isset($_SESSION['adminName'])){
+        echo "<head>";
+            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
+        echo "</head>";
+    }
     
     
     // $query = "select * from customer";

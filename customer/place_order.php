@@ -152,8 +152,10 @@
             $e = oci_error($stmt);
             var_dump($e);
         }
-        echo $total;
+        // echo $total;
+        
 
+        // ..........................................
 
         // echo "<head>";
         //     echo "<title>done</title>";
@@ -195,7 +197,7 @@
     </div>
 
     <div class="item">
-            <a href="../customer/index.php"> <button class="btn">Continue Shopping</button></a>
+            <a href="./reset.php"> <button class="btn">Continue Shopping</button></a>
                
     </div>
 

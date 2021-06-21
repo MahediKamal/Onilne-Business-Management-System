@@ -71,6 +71,8 @@
     require_once '../includes/function.php';
     require_once 'navigation.php';
 
+    // echo $cst_id;
+    // echo $cst_email;
     
     echo "<div class=\"hello\"><h2> Hello $cst_name, This is your order info!</h2></div>"; 
     
@@ -106,12 +108,26 @@
 
     ///////////////----------------completed order
 
+    // $sql = "SELECT cst_id FROM customer WHERE cst_email='$cst_email'";
+    //         $stmt = oci_parse($con, $sql);
+    //         $rc = oci_execute($stmt);
+    //         if(!$rc){
+    //             $e = oci_error($stmt);
+    //             var_dump($e);
+    //         }
+    //         $cst_id = 0;
+    //         while (($row = oci_fetch_array($stmt, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {
+    //             foreach ($row as $item) {
+    //                 $cst_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
+    //             }
+    //         }
 
     echo "<br> <div class=\"hello2\"><h2>Order History:</h2></div> <br>"; 
     $query = "SELECT order_id, ORDER_DATE, PAYMENT_STATUS
     FROM order_info where cst_id = $cst_id AND payment_status ='paid'
     ORDER BY order_id DESC";
     $action = 0;
+    // echo $cst_id;
     CreateTable_for_customer_order_av($query, $con, $action, $table);
 
     // $cid = find_cartID_according_to_orderID_from_HasProductInCart($order_id, $con);
