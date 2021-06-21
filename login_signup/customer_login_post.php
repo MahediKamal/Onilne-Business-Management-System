@@ -175,6 +175,7 @@
             $_SESSION['orde_id'] = $order_id;
             $_SESSION['billing_id'] = $billing_id;
             $_SESSION['courier_id'] = $courier_id;
+            $_SESSION['total'] = 0;
 
             // echo $order_id. ' ' .$cart_id . ' ' . $billing_id. ' '. $courier_id;
             // had to initialize billing_info table (as order id is foreign key of cart)
