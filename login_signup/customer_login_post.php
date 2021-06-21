@@ -158,7 +158,8 @@
                 }
             }
             // ------------------getting next customer_id
-            $sql = "SELECT cst_id FROM customer WHERE cst_email='$cst_email'";
+            // $sql = "SELECT cst_id FROM customer WHERE cst_email='$cst_email'";
+            $sql = 'SELECT MAX(cst_id) FROM customer';
             $stmt = oci_parse($con, $sql);
             $rc = oci_execute($stmt);
             if(!$rc){
