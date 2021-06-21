@@ -74,6 +74,7 @@
     $order_id = $_SESSION['orde_id'];
     $billing_id = $_SESSION['billing_id'];
     $courier_id = $_SESSION['courier_id'];
+    $total = $_SESSION['total'];
     require_once '../includes/connection.php';
     require_once '../includes/function.php';
 
@@ -131,6 +132,29 @@
             $e = oci_error($stmt);
             var_dump($e);
         }
+
+        //-----------update cart
+        // total num_of_pdt billing_id
+        $num_p = count_total_product($con, $cart_id);
+        $sql = 'UPDATE cart
+        SET  total=:tot, num_of_pdt =:n_p, billing_id=:b_id
+        WHERE cart_id= :c_id';
+
+        // echo $sql;
+        $stmt = oci_parse($con, $sql);
+        oci_bind_by_name($stmt, ':tot', $total, -1);
+        oci_bind_by_name($stmt, ':n_p', $num_p, -1);
+        oci_bind_by_name($stmt, ':b_id', $billing_id, -1);
+        oci_bind_by_name($stmt, ':c_id', $cart_id, -1);
+        
+        $rc = oci_execute($stmt);
+        if(!$rc){
+            $e = oci_error($stmt);
+            var_dump($e);
+        }
+        echo $total;
+
+
         // echo "<head>";
         //     echo "<title>done</title>";
         //     echo "<meta http-equiv = \"refresh\" content = \"5; url = ./index.php\" />";
