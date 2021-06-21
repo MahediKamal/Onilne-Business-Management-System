@@ -130,7 +130,7 @@
                 echo "</div>";
                 // <!--product-details-------->
                 echo "<div class=\"product-details\">";
-                    echo "<a href=\"#\" class=\"p-name\"> $pdt_name </a>";
+                    echo "<a href=\"../customer/detail.php?pdt_id=$pdt_id\" class=\"p-name\"> $pdt_name </a>";
                     echo "<span class=\"p-price\">$pdt_price</span>";
                 echo "</div>";
             echo "</div>";
@@ -209,11 +209,11 @@
                     echo "</td>";    
                     // echo "<td><input type=\"number\" value=\"$quantity\"></td>";
                     echo "<td>";
-                        echo "<a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id \" class=\"plus\">";
-                        echo "+</a>";
-                        echo $quantity; 
                         echo "<a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id&isdec=1 \" class=\"plus\">";
                         echo "--</a>";
+                        echo $quantity; 
+                        echo "<a href=\"../includes/add_to_cart.php?pdt_name=$pdt_name&pdt_picture=$pdt_picture&pdt_price=$pdt_price&pdt_id=$pdt_id\" class=\"plus\">";
+                        echo "+</a>";
                     echo "</td>";
                     // substr(string_name, start_pos, length_to_cut) 
                     // $q = ltrim($str, '$');

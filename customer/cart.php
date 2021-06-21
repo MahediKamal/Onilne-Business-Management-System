@@ -122,6 +122,8 @@
             background:teal;
             width:100px;
             padding:10px;
+            margin-right:5px;
+            margin-left:5px;
             text-align:center;
             text-decoration:none;
             color:white;
