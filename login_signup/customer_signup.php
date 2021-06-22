@@ -38,9 +38,9 @@
             }
         .font-weight-bold {
             color: black;
-            padding-top: 7px;
+            padding-top: 10px;
             margin-left: 25px;
-            padding-bottom: 4px;
+            padding-bottom: 15px;
     
         }
     </style>
