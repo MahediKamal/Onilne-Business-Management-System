@@ -742,4 +742,32 @@
         }
         return $new_orders;
     }
+
+    function count_total_customers($con){
+        // $due = 
+        $query = "SELECT cst_id FROM customer";
+        // echo $query;
+        $s = oci_parse($con, $query);
+
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($s);
+        $tot_cst = 0;
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {           
+            foreach ($row as $item) {
+                $tot_cst++;
+            }
+        }
+        return $tot_cst;
+    }
+
+
 ?>

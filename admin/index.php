@@ -15,7 +15,7 @@
 <style>
     body{
         /* background: black; */
-        background: #1597BB;
+        background: black;
     }
     .container{
         margin-top:110px !important;
@@ -42,6 +42,26 @@
         color:teal;
 
     }
+    /* ///// */
+    table{
+        width: 100%;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+    }
+    td {
+    height: 80px;
+    width: 160px;
+    text-align: center;
+    vertical-align: middle;
+    }
+    hr{
+        color: white;
+    }
+    
+    
+
+
+    
 
  </style>   
     
@@ -111,10 +131,37 @@
     // CreateTable_av($query, $con, $action, $table);
 
     $total_pdt = count_total_in_stock_product($con);
-    echo '<h1>Total products: ' . $total_pdt . '</h1>';
-
+    
     $new_orders = count_new_orders($con);
-    echo '<h1>Total products: ' . $new_orders . '</h1>';
+    
+    $tot_cst = count_total_customers($con);
+    
+    // echo '<h1>Total products: ' . $total_pdt . '</h1>';
+    // echo '<h1>Total products:: ' . $new_orders . '</h1>';
+    echo "<hr>";
+    echo "<table>";
+    echo "<tr>";
+        echo "<td>";
+        echo "<h1>Total products:  <span class=\"badge bg-warning text-dark\">$total_pdt</span></h1>";
+        echo "</td>";
+    echo "</tr>";
+    echo "<tr>";
+        echo "<td>";
+        echo "<h1>Orderd to process:  <span class=\"badge bg-warning text-dark\">$new_orders</span></h1>";
+        echo "</td>";
+    echo "</tr>";
+    
+    echo "<tr>";
+        echo "<td>";
+        echo "<h1>Numer of customers:  <span class=\"badge bg-warning text-dark\">$tot_cst</span></h1>";
+        echo "</td>";
+    echo "</tr>";
+    echo "</table>";
+    echo "<hr>";
+    // echo '<h1>Numer of customers: ' . $new_orders . '</h1>';
+
+
+    // echo "<h1 class=\".middle\">Example heading <span class=\"badge bg-warning text-dark\">New -----------</span></h1>";
 
 
     require_once '../includes/footer.php'; 
