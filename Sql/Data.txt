@@ -1,8 +1,19 @@
-INSERT INTO supplier_info (supplier_id, supplier_name, supplier_company, supplier_phone, supplier_country) VALUES (2, 'abir', 'AB_grp', '01888888', 'Bangladesh');
-INSERT INTO supplier_info (supplier_id, supplier_name, supplier_company, supplier_phone, supplier_country) VALUES (3, 'pranto', 'PR_grp', '01888888', 'Bangladesh');
-INSERT INTO customer
-VALUES (1,'100',100, 'iPhoneX', 'Apple', 35000, 'ttt','yyy');
+INSERT INTO  supplier_info VALUES (supplier_id_sequence.nextval, 'avash', 'av_grp', 01837633353, 'bangladesh'); 
+INSERT INTO  supplier_info VALUES (supplier_id_sequence.nextval, 'amrin', 'am_grp', 01837633353, 'bangladesh'); 
+INSERT INTO  supplier_info VALUES (supplier_id_sequence.nextval, 'afrina', 'af_grp', 01837633353, 'bangladesh'); 
 
+INSERT INTO pdt_category VALUES (category_id_sequence.nextval, 'MAN');
+update pdt_category set category_name='Men' where category_id=1;
+INSERT INTO pdt_category VALUES (category_id_sequence.nextval, 'Women');
+INSERT INTO pdt_category VALUES (category_id_sequence.nextval, 'Kids');
+INSERT INTO pdt_category VALUES (category_id_sequence.nextval, 'Electronics');
+delete from pdt_category
+
+DELETE  FROM billing_info;
+DELETE  FROM cart;
+DELETE  FROM courier;
+DELETE  FROM order_info;
+DELETE  FROM has_product_in_cart;
 
 ///-----------------------INSERT VALUE in product table -------------------
 
