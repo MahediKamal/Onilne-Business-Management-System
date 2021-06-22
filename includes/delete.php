@@ -113,10 +113,10 @@
         oci_free_statement($s);
         oci_close($con);
 
-        // echo "<head>";
-        //     echo "<title>done</title>";
-        //     echo "<meta http-equiv = \"refresh\" content = \"0; url = ../admin/$page.php\" />";
-        // echo "</head>";
+        echo "<head>";
+            echo "<title>done</title>";
+            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../admin/$page.php\" />";
+        echo "</head>";
 
     }
 
