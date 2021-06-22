@@ -7,7 +7,7 @@
     $pk_val = $_GET['pk_val'];
     $table = $_GET['tbl'];
 
-    if($table = "order_info"){ // we habe order_id in pk_val
+    if($table == "order_info"){ // we habe order_id in pk_val
         $order_id = $pk_val;
         // delete from order_info, courier, cart, billing_info
         $crt_id = find_cartID_according_to_orderID_from_HasProductInCart($order_id, $con);

@@ -1,6 +1,7 @@
 <?php
 
     function CreateTable_av($query, $con, $action, $table){
+        // echo "fffffff---------------";
         $s = oci_parse($con, $query);
         if (!$s) {
             $m = oci_error($con);
@@ -577,10 +578,8 @@
             foreach ($row as $item) {
                 $billing_id = htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE);
             }
-
-
-            return $billing_id;
         }
+        return $billing_id;
     }
 
     function CreateTable_for_customer_order_av($query, $con, $action, $table){
