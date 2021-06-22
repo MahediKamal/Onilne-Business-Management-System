@@ -12,36 +12,57 @@
     
 ?>
    
-   <style>
- body{
-     /* background: black; */
-     background: #1597BB;
- }
- .container{
-     margin-top:110px !important;
- }
- .card{
-     border:none;
-     outline:none;
-     background-color:white;
-     border-radius:20px;
-     transition: transform .3s;
- }
- .card:hover{
-     transform: translateY(-15px);
-     transition: transform .3s;
- }
-.admin span a{
-    font-size: 27px;
-    font-weight:bold;
-    padding-top:0 !important;
-    text-decoration:none;
-    color:black !important;
-}
- .span a:hover{
-     color:teal;
+<style>
+    body{
+        /* background: black; */
+        background: black;
+    }
+    .container{
+        margin-top:110px !important;
+    }
+    .card{
+        border:none;
+        outline:none;
+        background-color:white;
+        border-radius:20px;
+        transition: transform .3s;
+    }
+    .card:hover{
+        transform: translateY(-15px);
+        transition: transform .3s;
+    }
+    .admin span a{
+        font-size: 27px;
+        font-weight:bold;
+        padding-top:0 !important;
+        text-decoration:none;
+        color:black !important;
+    }
+    .span a:hover{
+        color:teal;
 
- }
+    }
+    /* ///// */
+    table{
+        width: 100%;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+    }
+    td {
+    height: 80px;
+    width: 160px;
+    text-align: center;
+    vertical-align: middle;
+    }
+    hr{
+        color: white;
+    }
+    
+    
+
+
+    
+
  </style>   
     
 <div class="container mb-5 mt-5">
@@ -88,26 +109,60 @@
 
 
 <?php 
-    $action = 2;
-    $table = "billing_info"; 
-    $query = 'SELECT * FROM billing_info';
-    CreateTable_av($query, $con, $action, $table);
+    // $action = 2;
+    // $table = "billing_info"; 
+    // $query = 'SELECT * FROM billing_info';
+    // CreateTable_av($query, $con, $action, $table);
 
-    $table = "cart"; 
-    $query = 'SELECT * FROM cart';
-    CreateTable_av($query, $con, $action, $table);
+    // $table = "cart"; 
+    // $query = 'SELECT * FROM cart';
+    // CreateTable_av($query, $con, $action, $table);
 
-    $table = "has_product_in_cart"; 
-    $query = 'SELECT * FROM has_product_in_cart';
-    CreateTable_av($query, $con, $action, $table);
+    // $table = "has_product_in_cart"; 
+    // $query = 'SELECT * FROM has_product_in_cart';
+    // CreateTable_av($query, $con, $action, $table);
 
-    $table = "order_info"; 
-    $query = 'SELECT * FROM order_info';
-    CreateTable_av($query, $con, $action, $table);
+    // $table = "order_info"; 
+    // $query = 'SELECT * FROM order_info';
+    // CreateTable_av($query, $con, $action, $table);
 
-    $table = "courier"; 
-    $query = 'SELECT * FROM courier';
-    CreateTable_av($query, $con, $action, $table);
+    // $table = "courier"; 
+    // $query = 'SELECT * FROM courier';
+    // CreateTable_av($query, $con, $action, $table);
+
+    $total_pdt = count_total_in_stock_product($con);
+    
+    $new_orders = count_new_orders($con);
+    
+    $tot_cst = count_total_customers($con);
+    
+    // echo '<h1>Total products: ' . $total_pdt . '</h1>';
+    // echo '<h1>Total products:: ' . $new_orders . '</h1>';
+    echo "<hr>";
+    echo "<table>";
+    echo "<tr>";
+        echo "<td>";
+        echo "<h1>Total products:  <span class=\"badge bg-warning text-dark\">$total_pdt</span></h1>";
+        echo "</td>";
+    echo "</tr>";
+    echo "<tr>";
+        echo "<td>";
+        echo "<h1>Orderd to process:  <span class=\"badge bg-warning text-dark\">$new_orders</span></h1>";
+        echo "</td>";
+    echo "</tr>";
+    
+    echo "<tr>";
+        echo "<td>";
+        echo "<h1>Numer of customers:  <span class=\"badge bg-warning text-dark\">$tot_cst</span></h1>";
+        echo "</td>";
+    echo "</tr>";
+    echo "</table>";
+    echo "<hr>";
+    // echo '<h1>Numer of customers: ' . $new_orders . '</h1>';
+
+
+    // echo "<h1 class=\".middle\">Example heading <span class=\"badge bg-warning text-dark\">New -----------</span></h1>";
+
 
     require_once '../includes/footer.php'; 
 ?>
