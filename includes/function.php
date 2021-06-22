@@ -691,4 +691,55 @@
         echo "</tbody>";
         echo "</table>";
     }
+
+    function count_total_in_stock_product($con){
+        $query = "SELECT pdt_id FROM product";
+        // echo $query;
+        $s = oci_parse($con, $query);
+
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($s);
+        $total_pdt = 0;
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {           
+            foreach ($row as $item) {
+                $total_pdt++;
+            }
+        }
+        return $total_pdt;
+    }
+
+    function count_new_orders($con){
+        // $due = 
+        $query = "SELECT order_id FROM order_info WHERE payment_status='due'";
+        // echo $query;
+        $s = oci_parse($con, $query);
+
+        if (!$s) {
+            $m = oci_error($con);
+            trigger_error('Could not parse statement: '. $m['message'], E_USER_ERROR);
+        }
+        $r = oci_execute($s);
+        if (!$r) {
+            $m = oci_error($s);
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+        }
+
+        $ncols = oci_num_fields($s);
+        $new_orders = 0;
+        while (($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS)) != false) {           
+            foreach ($row as $item) {
+                $new_orders++;
+            }
+        }
+        return $new_orders;
+    }
 ?>
