@@ -14,7 +14,7 @@
         echo "</head>";
     }
     
-    $query = "select * from product";
+    $query = "select * from product ORDER BY pdt_id";
     // PDT_ID	PDT_NAME	UNIT_ORDER	PDT_DESCRIPTION	PDT_QUANTITY	PDT_PICTURE	PDT_PRICE	PDT_WEIGHT	PDT_STOCK	PDT_DISCOUNT
     //	CATEGORY_ID	SUPPLIER_ID
     $action = 1; // action 1, means we want add & delete button in the table
