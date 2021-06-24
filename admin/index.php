@@ -2,16 +2,19 @@
 <?php
     session_start();
     $title = "admin";
+    $table_title = "";
+    $admin_name = $_SESSION['adminName'];
     require_once '../includes/header.php';
     require_once '../includes/connection.php';
     require_once '../includes/function.php';
+    require_once 'navigation.php';
     if(!isset($_SESSION['adminName'])){
         echo "<head>";
-            echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
+        echo "<meta http-equiv = \"refresh\" content = \"0; url = ../customer/index.php\" />";
         echo "</head>";
     }
     
-?>
+    ?>
    
 <style>
     body{
@@ -76,7 +79,7 @@
                                  <a href="customer_details_table.php" target="_blank">
                                     <div class="services color-5">
                                        <span class="icon2"><i class="fa fa-desktop"></i></span>
-                                       <h3>Customer <br> Details</h3>
+                                       <br><br><h3>Customer <br> Details</h3>
                                     </div>
                                  </a>
                               </div>
@@ -85,7 +88,7 @@
                                     <div class="services color-2">
                                        <span class="icon2"><i class="fa fa-drupal" aria-hidden="true"></i>
 </span>
-                                       <h3>Product<br> Details</h3>
+                                       <br><br><h3>Product<br> Details</h3>
                                     </div>
                                  </a>
                               </div>
@@ -94,24 +97,24 @@
                                  <a href="supplier_table.php" target="_blank">
                                     <div class="services color-4">
                                        <span class="icon2"><i class="fa fa-bar-chart" aria-hidden="true"></i></span>
-                                       <h3>Supplier<br> Details</h3>
+                                       <br><br><h3>Supplier<br> Details</h3>
                                     </div>
                                  </a>
                               </div>
-                              <div class="col-md-4 animate-box" data-animate-effect="fadeInRight">
+                              <div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
                                  <a href="order_table.php" target="_blank">
                                     <div class="services color-5">
                                        <span class="icon2"><i class="fa fa-pie-chart" aria-hidden="true"></i></span>
-                                       <h3>Order<br> Details</h3>
+                                       <br><br><h3>Order<br> Details</h3>
                                     </div>
                                  </a>
                               </div>
-                              <div class="col-md-4 animate-box" data-animate-effect="fadeInRight">
-                                 <a href="competitiveProgramming.html" target="_blank">
+                              <div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
+                                 <a href="courier_table.php" target="_blank">
                                     <div class="services color-2">
                                        <span class="icon2"><i class="fa fa-balance-scale" aria-hidden="true"></i>
 </span>
-                                       <h3>Supplier<br> Details</h3>
+                                       <br><br><h3>Courier<br> Details</h3>
                                     </div>
                                  </a>
                               </div>

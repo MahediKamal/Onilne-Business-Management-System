@@ -155,9 +155,13 @@ quantity NUMBER(38) NOT NULL
 
 INSERT INTO has_product_in_cart VALUES (1, 1, 1, 1);
 
-/////////  order info VIEW
+/////////   VIEW
 CREATE VIEW order_inf_view AS  SELECT * FROM order_info
 WHERE payment_status != '___';
+
+CREATE VIEW courier_view AS SELECT * FROM courier 
+WHERE courier_company != '__';
+
 
 
 
