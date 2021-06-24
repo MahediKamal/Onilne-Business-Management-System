@@ -155,8 +155,9 @@ quantity NUMBER(38) NOT NULL
 
 INSERT INTO has_product_in_cart VALUES (1, 1, 1, 1);
 
-
-
+/////////  order info VIEW
+CREATE VIEW order_inf_view AS  SELECT * FROM order_info
+WHERE payment_status != '___';
 
 
 

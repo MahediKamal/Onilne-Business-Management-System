@@ -19,7 +19,7 @@
     // $query = "select * from customer";
 
     // order_id, order_date, estimated_date, delivery_date , payment_status, cst_id, courier_id
-    $query = "SELECT order_id, order_date, estimated_date, delivery_date , payment_status, cst_id, courier_id FROM order_info
+    $query = "SELECT order_id, order_date, estimated_date, delivery_date , payment_status, cst_id, courier_id FROM order_inf_view
     ORDER BY payment_status, order_id  DESC";
 
     $action = 1; // action 1, means we want add & delete button in the table
