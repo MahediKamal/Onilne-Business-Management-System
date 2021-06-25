@@ -159,7 +159,7 @@
     echo "</tr>";
     echo "<tr>";
         echo "<td>";
-        echo "<h1>Orderd to process:  <span class=\"badge bg-warning text-dark\">$new_orders</span></h1>";
+        echo "<h1>Orderds to process:  <span class=\"badge bg-warning text-dark\">$new_orders</span></h1>";
         echo "</td>";
     echo "</tr>";
     
