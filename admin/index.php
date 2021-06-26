@@ -159,13 +159,13 @@
     echo "</tr>";
     echo "<tr>";
         echo "<td>";
-        echo "<h1>Orderds to process:  <span class=\"badge bg-warning text-dark\">$new_orders</span></h1>";
+        echo "<h1>Orders to process:  <span class=\"badge bg-warning text-dark\">$new_orders</span></h1>";
         echo "</td>";
     echo "</tr>";
     
     echo "<tr>";
         echo "<td>";
-        echo "<h1>Numer of customers:  <span class=\"badge bg-warning text-dark\">$tot_cst</span></h1>";
+        echo "<h1>Nubmer of customers:  <span class=\"badge bg-warning text-dark\">$tot_cst</span></h1>";
         echo "</td>";
     echo "</tr>";
     echo "</table>";

@@ -29,11 +29,13 @@
 
     // ...............showing current row info..................................
     $row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS);
+    echo "<h1> current: ";
     foreach ($row as $item) {
-        echo "<td>";
+        echo "<td> [";
         echo $item!==null?htmlspecialchars($item, ENT_QUOTES|ENT_SUBSTITUTE):"&nbsp;";
-        echo "</td>\n";
+        echo "] </td>\n";
     }
+    echo "</h1>";
 
 
     if($pk_field == "SUPPLIER_ID"){
@@ -90,7 +92,7 @@
         }
     }
     else if($pk_field == "PDT_ID"){
-        echo "edid product";
+        // echo "edid product";
 
         echo "<form action=\"../admin/update_product.php?pdt_id=$pk_val\" method=\"post\" class=\"form\">";
             // <!-- <input type="text" name="PDT_ID" placeholder="id" /> -->

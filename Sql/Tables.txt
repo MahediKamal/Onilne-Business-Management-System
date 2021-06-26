@@ -162,7 +162,12 @@ WHERE payment_status != '___';
 CREATE VIEW courier_view AS SELECT * FROM courier 
 WHERE courier_company != '__';
 
-
+create table admin_login
+(
+    admin_id NUMBER(38) NOT NULL PRIMARY KEY, 
+    admin_name VARCHAR(150) NOT NULL, 
+    admin_password varchar(8) NOT NULL
+);
 
 
 -----------------------------------------------------old----------------------------------------------------
